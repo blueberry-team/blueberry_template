@@ -8,9 +8,6 @@ linter:
     # 작은 따옴표 사용을 선호
     prefer_single_quotes: true
 
-    # 변수에 타입을 명시하도록 권장
-    always_specify_types: true
-
     # 가능한 곳에서는 const 생성자를 사용하도록 권장
     prefer_const_constructors: true
 
