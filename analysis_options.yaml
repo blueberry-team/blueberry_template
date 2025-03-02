@@ -1,0 +1,51 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # print() 사용을 피하도록 권장
+    avoid_print: true
+
+    # 작은 따옴표 사용을 선호
+    prefer_single_quotes: true
+
+    # 변수에 타입을 명시하도록 권장
+    always_specify_types: true
+
+    # 가능한 곳에서는 const 생성자를 사용하도록 권장
+    prefer_const_constructors: true
+
+    # 코드에서 주석을 추가하도록 유도하는 규칙
+    comment_references: true
+
+    # 파일 상단에 헤더 주석을 추가하도록 유도
+    file_header: true
+
+    # 긴 코드 라인에서 마지막에 콤마를 추가하도록 유도하여 주석을 추가할 공간 확보
+    require_trailing_commas: true
+
+    # 메서드나 클래스에 설명을 추가할 때 필수로 주석을 달도록 유도
+    public_member_api_docs: true
+
+    # 클래스와 함수의 문서화 주석을 강제
+    top_level_documented_members: true
+
+    # 투두 주석을 반드시 처리하도록 유도
+    todo: true
+
+    # 모든 파라미터에 대한 설명 주석을 추가하도록 유도
+    always_document_parameters: true
+
+    # 불필요한 코드, 임시 코드는 삭제하도록 유도
+    unused_element: true
+
+    # 절대로 상수 값을 재할당하지 않도록 유도
+    final_fields: true
+
+    # `await`와 `async`가 사용되지 않은 곳에서는 async/await 패턴을 강제하도록 유도
+    await_only_futures: true
+
+    # 상수를 위한 대문자 사용을 강제
+    constant_identifier_names: true
+
+    # 숫자 리터럴에서 접미사를 붙이지 않도록 유도
+    prefer_int_literals: true

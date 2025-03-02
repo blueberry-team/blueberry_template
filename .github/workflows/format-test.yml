@@ -1,0 +1,50 @@
+# Flutter 코드 자동 포맷 워크플로우
+name: 포매터 실행
+
+# PR이 생성되거나 업데이트 될 때 워크플로우 실행
+on: [ pull_request ]
+
+# GitHub Actions에 필요한 권한 설정
+permissions:
+  contents: write  # GitHub Actions가 코드 변경을 푸시할 수 있도록 설정
+
+jobs:
+  flutter_format:
+    name: Flutter Format 실행
+    runs-on: ubuntu-latest
+    steps:
+      # 리포지토리 코드 체크아웃
+      - name: 리포지토리 체크아웃
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub 토큰으로 권한 설정
+          ref: ${{ github.head_ref }}         # PR 브랜치 참조
+
+      # Flutter 개발 환경 설정
+      - name: Flutter 설정
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.27.3'
+
+      # 프로젝트 의존성 패키지 설치
+      - name: 의존성 패키지 설치
+        run: flutter pub get
+
+      # 코드 자동 포맷 실행
+      - name: 코드 포맷 실행
+        run: dart format .
+
+      # 포맷된 코드 커밋하고 푸시
+      - name: 변경 사항 커밋 및 푸시
+        run: |
+          # GitHub Actions 봇 사용자 설정
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add .
+          
+          # 변경 사항이 있으면 커밋하고 푸시
+          if ! git diff --staged --quiet; then
+            git commit -m "style: 자동 포맷된 코드"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
