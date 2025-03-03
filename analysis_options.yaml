@@ -2,29 +2,61 @@ include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
-    # print() 사용을 피하도록 권장
-    avoid_print: true
+  # 기본값이 false인 규칙들 (명시적 설정 필요)
+    ## 코드 스타일
+    prefer_single_quotes: true  # 작은 따옴표 사용 선호 (★★★★★)
+    always_specify_types: false  # 변수 타입 명시 (★★★☆☆)
+    require_trailing_commas: false  # 후행 쉼표 사용 (★★★★☆)
+    prefer_int_literals: true  # 숫자 리터럴에서 접미사 사용 제한 (★★★☆☆)
+    lines_longer_than_80_chars: false  # 80자 제한 (★★★☆☆)
 
-    # 작은 따옴표 사용을 선호
-    prefer_single_quotes: true
+    ## 문서화
+    public_member_api_docs: true  # 주석 강제하기 (★★★☆☆)
+    comment_references: true  # 주석에 []를 사용해서 클릭 가능한 주석을 생성 (★★☆☆☆)
 
-    # 가능한 곳에서는 const 생성자를 사용하도록 권장
-    prefer_const_constructors: true
+  # 기본값이 true인 규칙들 (명시적 설정 없이도 적용됨)
+    ## 코드 스타일
+    prefer_const_constructors: true  # const 생성자 사용 (★★★★★)
+    file_names: true  # 파일 이름 규칙 (snake_case) (★★★★★)
+    constant_identifier_names: true # 상수를 위한 대문자 사용을 강제 (★★★★★)
+    curly_braces_in_flow_control_structures: true  # 제어 구조에 중괄호 사용 (★★★★★)
+    prefer_final_fields: true  # final 필드 선호 (★★★★★)
+    avoid_empty_else: true  # 빈 else 블록 피하기 (★★★★☆)
 
-    # 코드에서 주석을 추가하도록 유도하는 규칙
-    comment_references: true
+    ## 문자열 처리
+    prefer_interpolation_to_compose_strings: true  # 문자열 보간 사용 (★★★★★)
+    unnecessary_string_interpolations: true  # 불필요한 문자열 보간 제거 (★★★★☆)
+    unnecessary_brace_in_string_interps: true  # 문자열 보간의 불필요한 중괄호 제거 (★★★★☆)
 
-    # 긴 코드 라인에서 마지막에 콤마를 추가하도록 유도하여 주석을 추가할 공간 확보
-    require_trailing_commas: true
+    ## 성능 최적화
+    avoid_slow_async_io: true  # 느린 비동기 IO 작업 피하기 (★★★★☆)
+    prefer_spread_collections: true  # 스프레드 연산자 사용 (★★★★☆)
+    unnecessary_const: true  # 불필요한 const 제거 (★★★★★)
+    prefer_contains: true  # contains 메서드 사용 (★★★★☆)
 
-    # 메서드나 클래스에 설명을 추가할 때 필수로 주석을 달도록 유도
-    public_member_api_docs: true
+    ## 비동기 및 리소스 관리
+    await_only_futures: true  # async/await 패턴의 올바른 사용 강제 (★★★★☆)
+    cancel_subscriptions: true  # 구독 취소 보장 (★★★★★)
+    close_sinks: true  # 싱크 닫기 보장 (★★★★★)
 
-    # `await`와 `async`가 사용되지 않은 곳에서는 async/await 패턴을 강제하도록 유도
-    await_only_futures: true
+    ## Flutter 관련
+    avoid_web_libraries_in_flutter: true  # Flutter에서 웹 라이브러리 사용 제한 (★★★★☆)
+    use_key_in_widget_constructors: true  # 위젯 생성자에 key 매개변수 사용 (★★★★☆)
+    no_logic_in_create_state: true  # createState에 로직 제한 (★★★★★)
+    sized_box_for_whitespace: true  # 공백을 위한 SizedBox 사용 (★★★★☆)
 
-    # 상수를 위한 대문자 사용을 강제
-    constant_identifier_names: true
+    ## 널 안전성
+    avoid_init_to_null: true  # 불필요한 null 초기화 피하기 (★★★★★)
+    prefer_null_aware_operators: true  # null 인식 연산자 사용 (★★★★★)
+    unnecessary_null_checks: true  # 불필요한 null 체크 제거 (★★★★☆)
 
-    # 숫자 리터럴에서 접미사를 붙이지 않도록 유도
-    prefer_int_literals: true
+    ## 타입 안전성
+    avoid_types_as_parameter_names: true  # 매개변수 이름으로 타입 사용 금지 (★★★★★)
+    prefer_typing_uninitialized_variables: true  # 초기화되지 않은 변수의 타입 명시 (★★★★☆)
+    prefer_if_null_operators: true  # if null 연산자 사용 (★★★★★)
+
+    ## 디버깅
+    avoid_print: true  # print() 사용 피하기 (★★★★☆)
+
+    ## 문서화
+    slash_for_doc_comments: true  # 문서 주석에 슬래시 사용 (★★★★☆)
