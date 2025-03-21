@@ -45,13 +45,13 @@ class RangeCalendarCard extends StatefulWidget {
 class _RangeCalendarCardState extends State<RangeCalendarCard> {
   /// 선택된 시작일
   DateTime? _rangeStart;
-  
+
   /// 선택된 종료일
   DateTime? _rangeEnd;
-  
+
   /// 현재 포커스된 날짜
   late DateTime _focusedDay;
-  
+
   // 날짜 포맷터
   final DateFormat _dateFormat = DateFormat('yyyy-MM-dd');
 
@@ -71,7 +71,7 @@ class _RangeCalendarCardState extends State<RangeCalendarCard> {
           children: [
             Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 16),
-            
+
             // 테이블 캘린더 위젯 사용
             TableCalendar(
               firstDay: widget.firstDate,
@@ -101,7 +101,9 @@ class _RangeCalendarCardState extends State<RangeCalendarCard> {
               },
               calendarStyle: CalendarStyle(
                 // 범위 내 날짜 스타일 지정
-                rangeHighlightColor: Theme.of(context).colorScheme.primary.withAlpha(50),
+                rangeHighlightColor: Theme.of(
+                  context,
+                ).colorScheme.primary.withAlpha(50),
                 rangeStartDecoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primary,
                   shape: BoxShape.circle,
@@ -127,22 +129,30 @@ class _RangeCalendarCardState extends State<RangeCalendarCard> {
                 titleTextStyle: Theme.of(context).textTheme.titleMedium!,
               ),
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // 선택된 범위 표시
-            _rangeStart != null 
-                ? Text('시작일: ${_dateFormat.format(_rangeStart!)}',
-                    style: Theme.of(context).textTheme.bodyMedium)
-                : Text('시작일: 선택 안됨',
-                    style: Theme.of(context).textTheme.bodyMedium),
+            _rangeStart != null
+                ? Text(
+                  '시작일: ${_dateFormat.format(_rangeStart!)}',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                )
+                : Text(
+                  '시작일: 선택 안됨',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
             const SizedBox(height: 8),
-            _rangeEnd != null 
-                ? Text('종료일: ${_dateFormat.format(_rangeEnd!)}',
-                    style: Theme.of(context).textTheme.bodyMedium)
-                : Text('종료일: 선택 안됨',
-                    style: Theme.of(context).textTheme.bodyMedium),
-            
+            _rangeEnd != null
+                ? Text(
+                  '종료일: ${_dateFormat.format(_rangeEnd!)}',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                )
+                : Text(
+                  '종료일: 선택 안됨',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+
             if (_rangeStart != null && _rangeEnd != null)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
@@ -151,7 +161,7 @@ class _RangeCalendarCardState extends State<RangeCalendarCard> {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
-            
+
             const SizedBox(height: 16),
             Text(
               widget.description,
@@ -162,7 +172,7 @@ class _RangeCalendarCardState extends State<RangeCalendarCard> {
       ),
     );
   }
-  
+
   /// 같은 날짜인지 확인하는 헬퍼 메서드
   bool isSameDay(DateTime a, DateTime b) {
     return a.year == b.year && a.month == b.month && a.day == b.day;
