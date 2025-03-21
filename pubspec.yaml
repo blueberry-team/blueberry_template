@@ -15,6 +15,8 @@ dependencies:
   fl_chart: ^0.70.2
   flutter_riverpod: ^2.6.1
   google_fonts: ^6.2.1
+  intl: ^0.20.2
+  table_calendar: ^3.2.0
 
 dev_dependencies:
   flutter_test:

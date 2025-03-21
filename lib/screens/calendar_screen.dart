@@ -68,9 +68,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       initialDate: _focusedDate,
                       firstDate: DateTime(2000),
                       lastDate: DateTime(2100),
-                      onDateChanged: (date) {
+                      onRangeChanged: (start, end) {
                         setState(() {
-                          _focusedDate = date;
+                          if (start != null) {
+                            _focusedDate = start;
+                          }
                         });
                       },
                       selectableDayPredicate: (date) {
