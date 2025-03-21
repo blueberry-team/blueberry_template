@@ -82,7 +82,7 @@ class GraphScreen extends StatelessWidget {
   /// 파이 차트 위젯을 생성하는 메소드
   Widget _buildPieChart(BuildContext context) {
     final textStyle = Theme.of(context).textTheme.labelMedium;
-    
+
     final sections = [
       PieChartSectionData(
         color: AppColor.neonPurple,
