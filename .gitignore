@@ -6,6 +6,7 @@
 .pub-cache/
 .pub/
 build/
+pubspec.lock
 
 # Platforms to ignore
 /linux/
