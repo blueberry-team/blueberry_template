@@ -6,6 +6,7 @@
 .pub-cache/
 .pub/
 build/
+pubspec.lock
 
 # Platforms to ignore
 /linux/
@@ -22,6 +23,7 @@ build/
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
+**/android/app/.cxx/
 *.jks
 
 # iOS
