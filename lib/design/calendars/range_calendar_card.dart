@@ -4,16 +4,22 @@ import 'package:flutter/material.dart';
 class RangeCalendarCard extends StatefulWidget {
   /// 카드 제목
   final String title;
+
   /// 초기 날짜
   final DateTime initialDate;
+
   /// 시작 날짜
   final DateTime firstDate;
+
   /// 종료 날짜
   final DateTime lastDate;
+
   /// 날짜 변경 이벤트 콜백
   final ValueChanged<DateTime>? onDateChanged;
+
   /// 선택 가능한 날짜 필터링 함수
   final bool Function(DateTime)? selectableDayPredicate;
+
   /// 캘린더 설명
   final String description;
 
@@ -52,10 +58,7 @@ class _RangeCalendarCardState extends State<RangeCalendarCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              widget.title,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 16),
             CalendarDatePicker(
               initialDate: _focusedDate,
@@ -79,4 +82,4 @@ class _RangeCalendarCardState extends State<RangeCalendarCard> {
       ),
     );
   }
-} 
+}

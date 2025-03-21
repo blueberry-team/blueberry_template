@@ -110,7 +110,7 @@ class DesignSystemScreen extends ConsumerWidget {
   }
 
   /// 네비게이션 카드 위젯을 생성합니다.
-  /// 
+  ///
   /// [title] - 카드 제목
   /// [description] - 카드 설명
   /// [onTap] - 탭 이벤트 처리 콜백
@@ -138,10 +138,7 @@ class DesignSystemScreen extends ConsumerWidget {
               const SizedBox(height: 8),
               Text(
                 description,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
-                ),
+                style: const TextStyle(fontSize: 14, color: Colors.grey),
               ),
             ],
           ),
@@ -149,4 +146,4 @@ class DesignSystemScreen extends ConsumerWidget {
       ),
     );
   }
-} 
+}

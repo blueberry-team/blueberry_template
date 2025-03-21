@@ -9,12 +9,8 @@ import 'providers/theme_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GoogleFonts.pendingFonts();
-  
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
-  );
+
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 /// 앱의 루트 위젯

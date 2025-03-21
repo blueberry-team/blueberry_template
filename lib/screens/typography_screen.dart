@@ -18,32 +18,41 @@ class TypographyScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                _buildTypographySection(
-                  'Display',
-                  [
-                    _buildTypographyItem('Display Large', AppTypography.displayLarge),
-                    _buildTypographyItem('Display Medium', AppTypography.displayMedium),
-                    _buildTypographyItem('Display Small', AppTypography.displaySmall),
-                  ],
-                ),
+                _buildTypographySection('Display', [
+                  _buildTypographyItem(
+                    'Display Large',
+                    AppTypography.displayLarge,
+                  ),
+                  _buildTypographyItem(
+                    'Display Medium',
+                    AppTypography.displayMedium,
+                  ),
+                  _buildTypographyItem(
+                    'Display Small',
+                    AppTypography.displaySmall,
+                  ),
+                ]),
                 const SizedBox(height: 24),
-                _buildTypographySection(
-                  'Headline',
-                  [
-                    _buildTypographyItem('Headline Large', AppTypography.headlineLarge),
-                    _buildTypographyItem('Headline Medium', AppTypography.headlineMedium),
-                    _buildTypographyItem('Headline Small', AppTypography.headlineSmall),
-                  ],
-                ),
+                _buildTypographySection('Headline', [
+                  _buildTypographyItem(
+                    'Headline Large',
+                    AppTypography.headlineLarge,
+                  ),
+                  _buildTypographyItem(
+                    'Headline Medium',
+                    AppTypography.headlineMedium,
+                  ),
+                  _buildTypographyItem(
+                    'Headline Small',
+                    AppTypography.headlineSmall,
+                  ),
+                ]),
                 const SizedBox(height: 24),
-                _buildTypographySection(
-                  'Body',
-                  [
-                    _buildTypographyItem('Body Large', AppTypography.bodyLarge),
-                    _buildTypographyItem('Body Medium', AppTypography.bodyMedium),
-                    _buildTypographyItem('Body Small', AppTypography.bodySmall),
-                  ],
-                ),
+                _buildTypographySection('Body', [
+                  _buildTypographyItem('Body Large', AppTypography.bodyLarge),
+                  _buildTypographyItem('Body Medium', AppTypography.bodyMedium),
+                  _buildTypographyItem('Body Small', AppTypography.bodySmall),
+                ]),
               ]),
             ),
           ),
@@ -57,10 +66,7 @@ class TypographyScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: AppTypography.titleLarge,
-        ),
+        Text(title, style: AppTypography.titleLarge),
         const SizedBox(height: 16),
         ...items,
       ],
@@ -74,15 +80,9 @@ class TypographyScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            name,
-            style: AppTypography.bodyMedium,
-          ),
+          Text(name, style: AppTypography.bodyMedium),
           const SizedBox(height: 8),
-          Text(
-            'The quick brown fox jumps over the lazy dog',
-            style: style,
-          ),
+          Text('The quick brown fox jumps over the lazy dog', style: style),
           const SizedBox(height: 4),
           Text(
             '${style.fontSize}px / ${style.fontWeight}',
@@ -92,4 +92,4 @@ class TypographyScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}

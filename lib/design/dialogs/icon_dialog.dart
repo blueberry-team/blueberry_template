@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 class IconDialog extends StatelessWidget {
   /// 다이얼로그 제목
   final String title;
+
   /// 다이얼로그 내용
   final String content;
+
   /// 아이콘 데이터
   final IconData icon;
+
   /// 아이콘 색상
   final Color? iconColor;
+
   /// 취소 버튼 콜백 함수
   final VoidCallback? onCancel;
+
   /// 확인 버튼 콜백 함수
   final VoidCallback? onConfirm;
 
@@ -31,10 +36,7 @@ class IconDialog extends StatelessWidget {
     return AlertDialog(
       title: Row(
         children: [
-          Icon(
-            icon,
-            color: iconColor ?? Theme.of(context).colorScheme.primary,
-          ),
+          Icon(icon, color: iconColor ?? Theme.of(context).colorScheme.primary),
           const SizedBox(width: 8),
           Text(title),
         ],
@@ -52,4 +54,4 @@ class IconDialog extends StatelessWidget {
       ],
     );
   }
-} 
+}

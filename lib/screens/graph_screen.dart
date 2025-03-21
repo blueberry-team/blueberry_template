@@ -14,34 +14,17 @@ class GraphScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('그래프'),
-      ),
+      appBar: AppBar(title: const Text('그래프')),
       body: CustomScrollView(
         slivers: [
           SliverList(
             delegate: SliverChildListDelegate([
               const SizedBox(height: 16),
-              GraphSection(
-                title: '라인 차트',
-                graphs: [
-                  _buildLineChart(context),
-                ],
-              ),
+              GraphSection(title: '라인 차트', graphs: [_buildLineChart(context)]),
               const SizedBox(height: 16),
-              GraphSection(
-                title: '막대 차트',
-                graphs: [
-                  _buildBarChart(context),
-                ],
-              ),
+              GraphSection(title: '막대 차트', graphs: [_buildBarChart(context)]),
               const SizedBox(height: 16),
-              GraphSection(
-                title: '파이 차트',
-                graphs: [
-                  _buildPieChart(context),
-                ],
-              ),
+              GraphSection(title: '파이 차트', graphs: [_buildPieChart(context)]),
               const SizedBox(height: 16),
             ]),
           ),
@@ -73,55 +56,27 @@ class GraphScreen extends StatelessWidget {
     final barGroups = [
       BarChartGroupData(
         x: 0,
-        barRods: [
-          BarChartRodData(
-            toY: 10,
-            color: AppColor.neonPurple,
-          ),
-        ],
+        barRods: [BarChartRodData(toY: 10, color: AppColor.neonPurple)],
       ),
       BarChartGroupData(
         x: 1,
-        barRods: [
-          BarChartRodData(
-            toY: 7,
-            color: AppColor.neonPurple,
-          ),
-        ],
+        barRods: [BarChartRodData(toY: 7, color: AppColor.neonPurple)],
       ),
       BarChartGroupData(
         x: 2,
-        barRods: [
-          BarChartRodData(
-            toY: 12,
-            color: AppColor.neonPurple,
-          ),
-        ],
+        barRods: [BarChartRodData(toY: 12, color: AppColor.neonPurple)],
       ),
       BarChartGroupData(
         x: 3,
-        barRods: [
-          BarChartRodData(
-            toY: 5,
-            color: AppColor.neonPurple,
-          ),
-        ],
+        barRods: [BarChartRodData(toY: 5, color: AppColor.neonPurple)],
       ),
       BarChartGroupData(
         x: 4,
-        barRods: [
-          BarChartRodData(
-            toY: 8,
-            color: AppColor.neonPurple,
-          ),
-        ],
+        barRods: [BarChartRodData(toY: 8, color: AppColor.neonPurple)],
       ),
     ];
 
-    return BarChartCard(
-      title: '월별 데이터',
-      barGroups: barGroups,
-    );
+    return BarChartCard(title: '월별 데이터', barGroups: barGroups);
   }
 
   /// 파이 차트 위젯을 생성하는 메소드
@@ -159,9 +114,6 @@ class GraphScreen extends StatelessWidget {
       ),
     ];
 
-    return PieChartCard(
-      title: '카테고리 분포',
-      sections: sections,
-    );
+    return PieChartCard(title: '카테고리 분포', sections: sections);
   }
-} 
+}

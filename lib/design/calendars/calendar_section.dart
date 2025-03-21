@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class CalendarSection extends StatelessWidget {
   /// 섹션 제목
   final String title;
+
   /// 섹션에 표시할 캘린더 위젯 목록
   final List<Widget> calendars;
 
@@ -19,13 +20,10 @@ class CalendarSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+        Text(title, style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 16),
         ...calendars,
       ],
     );
   }
-} 
+}

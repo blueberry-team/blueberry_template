@@ -6,8 +6,10 @@ import 'package:template/theme/app_color.dart';
 class LineChartCard extends StatelessWidget {
   /// 카드 제목
   final String title;
+
   /// 그래프에 표시할 데이터 포인트
   final List<FlSpot> dataPoints;
+
   /// 선 색상
   final Color? lineColor;
 
@@ -22,17 +24,14 @@ class LineChartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = lineColor ?? Theme.of(context).colorScheme.primary;
-    
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text(title, style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 16),
             SizedBox(
               height: 200,
@@ -64,7 +63,7 @@ class LineChartCard extends StatelessWidget {
                       dotData: const FlDotData(show: true),
                       belowBarData: BarAreaData(
                         show: true,
-                        color: AppColor.primary
+                        color: AppColor.primary,
                       ),
                     ),
                   ],
@@ -76,4 +75,4 @@ class LineChartCard extends StatelessWidget {
       ),
     );
   }
-} 
+}

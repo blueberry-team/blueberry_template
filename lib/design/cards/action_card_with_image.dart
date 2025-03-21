@@ -5,12 +5,16 @@ import '../../theme/app_typography.dart';
 class ActionCardWithImage extends StatelessWidget {
   /// 카드 제목
   final String title;
+
   /// 카드 설명
   final String description;
+
   /// 이미지 URL
   final String imageUrl;
+
   /// 취소 버튼 콜백 함수
   final VoidCallback? onCancel;
+
   /// 확인 버튼 콜백 함수
   final VoidCallback? onConfirm;
 
@@ -44,15 +48,9 @@ class ActionCardWithImage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: AppTypography.titleLarge,
-                ),
+                Text(title, style: AppTypography.titleLarge),
                 const SizedBox(height: 8),
-                Text(
-                  description,
-                  style: AppTypography.bodyMedium,
-                ),
+                Text(description, style: AppTypography.bodyMedium),
               ],
             ),
           ),
@@ -62,14 +60,8 @@ class ActionCardWithImage extends StatelessWidget {
               alignment: MainAxisAlignment.end,
               spacing: 8,
               children: [
-                TextButton(
-                  onPressed: onCancel,
-                  child: const Text('취소'),
-                ),
-                FilledButton(
-                  onPressed: onConfirm,
-                  child: const Text('확인'),
-                ),
+                TextButton(onPressed: onCancel, child: const Text('취소')),
+                FilledButton(onPressed: onConfirm, child: const Text('확인')),
               ],
             ),
           ),
@@ -77,4 +69,4 @@ class ActionCardWithImage extends StatelessWidget {
       ),
     );
   }
-} 
+}

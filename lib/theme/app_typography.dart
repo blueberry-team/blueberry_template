@@ -106,4 +106,4 @@ class AppTypography {
     fontWeight: FontWeight.w500,
     fontFamily: 'Noto Sans KR',
   );
-} 
+}

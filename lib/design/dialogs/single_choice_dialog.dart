@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 class SingleChoiceDialog extends StatefulWidget {
   /// 다이얼로그 제목
   final String title;
+
   /// 선택 가능한 옵션 목록
   final List<String> options;
+
   /// 취소 버튼 콜백 함수
   final VoidCallback? onCancel;
+
   /// 선택 완료 시 호출될 콜백 함수
   final ValueChanged<String>? onConfirm;
 
@@ -33,18 +36,19 @@ class _SingleChoiceDialogState extends State<SingleChoiceDialog> {
       title: Text(widget.title),
       content: Column(
         mainAxisSize: MainAxisSize.min,
-        children: widget.options.map((option) {
-          return RadioListTile<String>(
-            title: Text(option),
-            value: option,
-            groupValue: selectedValue,
-            onChanged: (value) {
-              setState(() {
-                selectedValue = value;
-              });
-            },
-          );
-        }).toList(),
+        children:
+            widget.options.map((option) {
+              return RadioListTile<String>(
+                title: Text(option),
+                value: option,
+                groupValue: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value;
+                  });
+                },
+              );
+            }).toList(),
       ),
       actions: [
         TextButton(
@@ -52,15 +56,16 @@ class _SingleChoiceDialogState extends State<SingleChoiceDialog> {
           child: const Text('취소'),
         ),
         FilledButton(
-          onPressed: selectedValue == null
-              ? null
-              : () {
-                  widget.onConfirm?.call(selectedValue!);
-                  Navigator.pop(context);
-                },
+          onPressed:
+              selectedValue == null
+                  ? null
+                  : () {
+                    widget.onConfirm?.call(selectedValue!);
+                    Navigator.pop(context);
+                  },
           child: const Text('확인'),
         ),
       ],
     );
   }
-} 
+}

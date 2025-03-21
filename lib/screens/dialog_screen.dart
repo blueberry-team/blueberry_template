@@ -15,9 +15,7 @@ class DialogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('다이얼로그'),
-      ),
+      appBar: AppBar(title: const Text('다이얼로그')),
       body: CustomScrollView(
         slivers: [
           SliverPadding(
@@ -81,10 +79,11 @@ class DialogScreen extends StatelessWidget {
   Future<void> _showBasicDialog(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) => const BasicDialog(
-        title: '기본 다이얼로그',
-        content: '이것은 기본적인 다이얼로그입니다.',
-      ),
+      builder:
+          (context) => const BasicDialog(
+            title: '기본 다이얼로그',
+            content: '이것은 기본적인 다이얼로그입니다.',
+          ),
     );
   }
 
@@ -92,11 +91,12 @@ class DialogScreen extends StatelessWidget {
   Future<void> _showIconDialog(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) => const IconDialog(
-        title: '아이콘 다이얼로그',
-        content: '아이콘이 포함된 다이얼로그입니다.',
-        icon: Icons.info_outline,
-      ),
+      builder:
+          (context) => const IconDialog(
+            title: '아이콘 다이얼로그',
+            content: '아이콘이 포함된 다이얼로그입니다.',
+            icon: Icons.info_outline,
+          ),
     );
   }
 
@@ -104,11 +104,12 @@ class DialogScreen extends StatelessWidget {
   Future<void> _showSuccessDialog(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) => const CustomAlertDialog(
-        title: '성공',
-        content: '작업이 성공적으로 완료되었습니다.',
-        icon: Icons.check_circle_outline,
-      ),
+      builder:
+          (context) => const CustomAlertDialog(
+            title: '성공',
+            content: '작업이 성공적으로 완료되었습니다.',
+            icon: Icons.check_circle_outline,
+          ),
     );
   }
 
@@ -116,12 +117,13 @@ class DialogScreen extends StatelessWidget {
   Future<void> _showWarningDialog(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) => IconDialog(
-        title: '경고',
-        content: '이 작업을 수행하시겠습니까?',
-        icon: Icons.warning_amber_outlined,
-        iconColor: Theme.of(context).colorScheme.error,
-      ),
+      builder:
+          (context) => IconDialog(
+            title: '경고',
+            content: '이 작업을 수행하시겠습니까?',
+            icon: Icons.warning_amber_outlined,
+            iconColor: Theme.of(context).colorScheme.error,
+          ),
     );
   }
 
@@ -129,12 +131,13 @@ class DialogScreen extends StatelessWidget {
   Future<void> _showErrorDialog(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) => CustomAlertDialog(
-        title: '오류',
-        content: '작업 중 오류가 발생했습니다.',
-        icon: Icons.error_outline,
-        iconColor: Theme.of(context).colorScheme.error,
-      ),
+      builder:
+          (context) => CustomAlertDialog(
+            title: '오류',
+            content: '작업 중 오류가 발생했습니다.',
+            icon: Icons.error_outline,
+            iconColor: Theme.of(context).colorScheme.error,
+          ),
     );
   }
 
@@ -142,13 +145,14 @@ class DialogScreen extends StatelessWidget {
   Future<void> _showSingleChoiceDialog(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) => SingleChoiceDialog(
-        title: '단일 선택',
-        options: const ['옵션 1', '옵션 2', '옵션 3'],
-        onConfirm: (value) {
-          debugPrint('선택된 값: $value');
-        },
-      ),
+      builder:
+          (context) => SingleChoiceDialog(
+            title: '단일 선택',
+            options: const ['옵션 1', '옵션 2', '옵션 3'],
+            onConfirm: (value) {
+              debugPrint('선택된 값: $value');
+            },
+          ),
     );
   }
 
@@ -156,13 +160,14 @@ class DialogScreen extends StatelessWidget {
   Future<void> _showMultiChoiceDialog(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) => MultiChoiceDialog(
-        title: '다중 선택',
-        options: const ['옵션 1', '옵션 2', '옵션 3'],
-        onConfirm: (values) {
-          debugPrint('선택된 값들: $values');
-        },
-      ),
+      builder:
+          (context) => MultiChoiceDialog(
+            title: '다중 선택',
+            options: const ['옵션 1', '옵션 2', '옵션 3'],
+            onConfirm: (values) {
+              debugPrint('선택된 값들: $values');
+            },
+          ),
     );
   }
-} 
+}

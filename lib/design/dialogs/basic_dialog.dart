@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 class BasicDialog extends StatelessWidget {
   /// 다이얼로그 제목
   final String title;
+
   /// 다이얼로그 내용
   final String content;
+
   /// 취소 버튼 콜백 함수
   final VoidCallback? onCancel;
+
   /// 확인 버튼 콜백 함수
   final VoidCallback? onConfirm;
 
@@ -37,4 +40,4 @@ class BasicDialog extends StatelessWidget {
       ],
     );
   }
-} 
+}

@@ -15,9 +15,7 @@ class CardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('카드'),
-      ),
+      appBar: AppBar(title: const Text('카드')),
       body: CustomScrollView(
         slivers: [
           SliverPadding(
@@ -82,4 +80,4 @@ class CardScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}

@@ -5,8 +5,10 @@ import '../../theme/app_typography.dart';
 class BasicCardWithImage extends StatelessWidget {
   /// 카드 제목
   final String title;
+
   /// 카드 설명
   final String description;
+
   /// 이미지 URL
   final String imageUrl;
 
@@ -38,15 +40,9 @@ class BasicCardWithImage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: AppTypography.titleLarge,
-                ),
+                Text(title, style: AppTypography.titleLarge),
                 const SizedBox(height: 8),
-                Text(
-                  description,
-                  style: AppTypography.bodyMedium,
-                ),
+                Text(description, style: AppTypography.bodyMedium),
               ],
             ),
           ),
@@ -54,4 +50,4 @@ class BasicCardWithImage extends StatelessWidget {
       ),
     );
   }
-} 
+}

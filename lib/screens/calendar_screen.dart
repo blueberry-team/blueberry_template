@@ -17,15 +17,14 @@ class CalendarScreen extends StatefulWidget {
 class _CalendarScreenState extends State<CalendarScreen> {
   /// 선택된 날짜
   DateTime _selectedDate = DateTime.now();
+
   /// 포커스된 날짜
   DateTime _focusedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('캘린더'),
-      ),
+      appBar: AppBar(title: const Text('캘린더')),
       body: CustomScrollView(
         slivers: [
           SliverPadding(
@@ -76,7 +75,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       },
                       selectableDayPredicate: (date) {
                         // 주말 선택 불가
-                        return date.weekday != DateTime.saturday && date.weekday != DateTime.sunday;
+                        return date.weekday != DateTime.saturday &&
+                            date.weekday != DateTime.sunday;
                       },
                       description: '선택 가능한 날짜: 평일만 선택 가능',
                     ),
@@ -89,4 +89,4 @@ class _CalendarScreenState extends State<CalendarScreen> {
       ),
     );
   }
-} 
+}
