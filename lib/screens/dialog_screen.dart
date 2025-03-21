@@ -118,7 +118,7 @@ class DialogScreen extends StatelessWidget {
     return showDialog(
       context: context,
       builder:
-          (context) => IconDialog(
+          (context) => CustomAlertDialog(
             title: '경고',
             content: '이 작업을 수행하시겠습니까?',
             icon: Icons.warning_amber_outlined,
