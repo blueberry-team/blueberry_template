@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import '../design/buttons/button_section.dart';
+import '../design/buttons/button_row.dart';
+import '../design/buttons/filled_btn.dart';
+import '../design/buttons/filled_icon_btn.dart';
+import '../design/buttons/outlined_btn.dart';
+import '../design/buttons/outlined_icon_btn.dart';
+import '../design/buttons/text_btn.dart';
+import '../design/buttons/text_icon_btn.dart';
+import '../design/buttons/like_btn.dart';
+import '../design/buttons/comment_btn.dart';
 
 /// 다양한 버튼 컴포넌트를 표시하는 화면
 class ButtonScreen extends StatelessWidget {
@@ -15,116 +25,87 @@ class ButtonScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                _buildButtonSection(context, '기본 버튼', [
-                  _buildButtonRow(context, [
-                    FilledButton(onPressed: () {}, child: const Text('Filled')),
-                    FilledButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
-                      label: const Text('Filled Icon'),
-                    ),
-                    FilledButton.tonal(
-                      onPressed: () {},
-                      child: const Text('Filled Tonal'),
-                    ),
-                    FilledButton.tonalIcon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
-                      label: const Text('Filled Tonal Icon'),
-                    ),
-                  ]),
-                  const SizedBox(height: 16),
-                  _buildButtonRow(context, [
-                    OutlinedButton(
-                      onPressed: () {},
-                      child: const Text('Outlined'),
-                    ),
-                    OutlinedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
-                      label: const Text('Outlined Icon'),
-                    ),
-                  ]),
-                  const SizedBox(height: 16),
-                  _buildButtonRow(context, [
-                    TextButton(onPressed: () {}, child: const Text('Text')),
-                    TextButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
-                      label: const Text('Text Icon'),
-                    ),
-                  ]),
-                ]),
-                const SizedBox(height: 24),
-                _buildButtonSection(context, '상태별 버튼', [
-                  _buildButtonRow(context, [
-                    FilledButton(
-                      onPressed: () {},
-                      child: const Text('Enabled'),
-                    ),
-                    const FilledButton(
-                      onPressed: null,
-                      child: Text('Disabled'),
-                    ),
-                  ]),
-                ]),
-                const SizedBox(height: 24),
-                _buildButtonSection(context, '크기별 버튼', [
-                  _buildButtonRow(context, [
-                    FilledButton(
-                      onPressed: () {},
-                      style: FilledButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 24,
-                          vertical: 16,
+                ButtonSection(
+                  title: '기본 버튼',
+                  buttons: [
+                    ButtonRow(
+                      buttons: [
+                        TextBtn(text: 'Text', onPressed: () {}),
+                        TextIconBtn(
+                          text: 'Text Icon',
+                          icon: Icons.add,
+                          onPressed: () {},
                         ),
-                      ),
-                      child: const Text('Large'),
+                      ],
                     ),
-                    FilledButton(onPressed: () {}, child: const Text('Medium')),
-                    FilledButton(
-                      onPressed: () {},
-                      style: FilledButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 8,
+                    const SizedBox(height: 16),
+                    ButtonRow(
+                      buttons: [
+                        FilledBtn(text: 'Filled', onPressed: () {}),
+                        FilledIconBtn(
+                          text: 'Filled Icon',
+                          icon: Icons.add,
+                          onPressed: () {},
                         ),
-                      ),
-                      child: const Text('Small'),
+                      ],
                     ),
-                  ]),
-                ]),
+                    const SizedBox(height: 16),
+                    ButtonRow(
+                      buttons: [
+                        OutlinedBtn(text: 'Outlined', onPressed: () {}),
+                        OutlinedIconBtn(
+                          text: 'Outlined Icon',
+                          icon: Icons.add,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                ButtonSection(
+                  title: '상태별 버튼',
+                  buttons: [
+                    ButtonRow(
+                      buttons: [
+                        FilledBtn(text: 'Enabled', onPressed: () {}),
+                        const FilledBtn(text: 'Disabled', onPressed: null),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                ButtonSection(
+                  title: '소셜 버튼',
+                  buttons: [
+                    ButtonRow(
+                      buttons: [
+                        LikeBtn(
+                          likeCount: 42,
+                          isLiked: false,
+                          onPressed: () {},
+                        ),
+                        LikeBtn(
+                          likeCount: 128,
+                          isLiked: true,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    ButtonRow(
+                      buttons: [
+                        CommentBtn(commentCount: 12, onPressed: () {}),
+                        CommentBtn(commentCount: 32, onPressed: () {}),
+                      ],
+                    ),
+                  ],
+                ),
               ]),
             ),
           ),
         ],
       ),
     );
-  }
-
-  /// 버튼 섹션을 구성하는 위젯
-  ///
-  /// [title] - 섹션 제목
-  /// [buttons] - 버튼 위젯 목록
-  Widget _buildButtonSection(
-    BuildContext context,
-    String title,
-    List<Widget> buttons,
-  ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title, style: Theme.of(context).textTheme.titleLarge),
-        const SizedBox(height: 16),
-        ...buttons,
-      ],
-    );
-  }
-
-  /// 버튼 행을 구성하는 위젯
-  ///
-  /// [buttons] - 가로로 나열할 버튼 위젯 목록
-  Widget _buildButtonRow(BuildContext context, List<Widget> buttons) {
-    return Wrap(spacing: 8, runSpacing: 8, children: buttons);
   }
 }

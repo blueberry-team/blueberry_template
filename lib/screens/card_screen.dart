@@ -5,6 +5,7 @@ import '../design/cards/action_card.dart';
 import '../design/cards/action_card_with_image.dart';
 import '../design/cards/outlined_card.dart';
 import '../design/cards/outlined_card_with_image.dart';
+import '../design/cards/social_card.dart';
 import '../design/cards/card_section.dart';
 
 /// 다양한 카드 컴포넌트를 표시하는 화면
@@ -38,22 +39,22 @@ class CardScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 24),
-                const CardSection(
+                CardSection(
                   title: '액션 카드',
                   cards: [
                     ActionCard(
                       title: '액션 카드',
                       description: '버튼이 포함된 카드입니다.',
-                      onCancel: null,
-                      onConfirm: null,
+                      onCancel: () {},
+                      onConfirm: () {},
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     ActionCardWithImage(
                       title: '이미지와 액션이 있는 카드',
                       description: '이미지와 버튼이 함께 있는 카드입니다.',
                       imageUrl: 'https://picsum.photos/400/200',
-                      onCancel: null,
-                      onConfirm: null,
+                      onCancel: () {},
+                      onConfirm: () {},
                     ),
                   ],
                 ),
@@ -70,6 +71,30 @@ class CardScreen extends StatelessWidget {
                       title: '이미지가 있는 아웃라인 카드',
                       description: '이미지와 테두리가 있는 카드입니다.',
                       imageUrl: 'https://picsum.photos/400/200',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                CardSection(
+                  title: '소셜 카드',
+                  cards: [
+                    SocialCard(
+                      title: '소셜 카드',
+                      description: '좋아요와 코멘트 기능이 있는 카드입니다.',
+                      likeCount: 42,
+                      commentCount: 12,
+                      onLikePressed: () {},
+                      onCommentPressed: () {},
+                    ),
+                    const SizedBox(height: 16),
+                    SocialCardWithImage(
+                      title: '이미지가 있는 소셜 카드',
+                      description: '이미지, 좋아요, 코멘트 기능이 있는 카드입니다.',
+                      imageUrl: 'https://picsum.photos/400/200',
+                      likeCount: 128,
+                      commentCount: 32,
+                      onLikePressed: () {},
+                      onCommentPressed: () {},
                     ),
                   ],
                 ),
