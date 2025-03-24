@@ -24,12 +24,10 @@ class FilledIconBtn extends StatelessWidget {
     return FilledButton.icon(
       onPressed: onPressed,
       style: FilledButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       icon: Icon(icon, size: 18),
       label: Text(text),
     );
   }
-} 
+}

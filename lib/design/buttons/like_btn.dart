@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class LikeBtn extends StatefulWidget {
   /// 좋아요 개수
   final int likeCount;
-  
+
   /// 좋아요 상태 (활성화 여부)
   final bool isLiked;
-  
+
   /// 애니메이션 표시 여부
   final bool isAnimated;
-  
+
   /// 버튼 클릭 시 실행할 콜백 함수
   final VoidCallback? onPressed;
 
@@ -31,7 +31,7 @@ class _LikeBtnState extends State<LikeBtn> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _scaleAnimation;
   final List<_HeartIcon> _hearts = [];
-  
+
   @override
   void initState() {
     super.initState();
@@ -39,42 +39,43 @@ class _LikeBtnState extends State<LikeBtn> with SingleTickerProviderStateMixin {
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-    
-    _scaleAnimation = Tween<double>(
-      begin: 1,
-      end: 1.2,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0, 0.3, curve: Curves.easeOut),
-      reverseCurve: const Interval(0.3, 1, curve: Curves.easeIn),
-    ));
+
+    _scaleAnimation = Tween<double>(begin: 1, end: 1.2).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0, 0.3, curve: Curves.easeOut),
+        reverseCurve: const Interval(0.3, 1, curve: Curves.easeIn),
+      ),
+    );
   }
-  
+
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
-  
+
   void _addHeart() {
     if (!widget.isAnimated) return;
-    
+
     setState(() {
-      _hearts.add(_HeartIcon(
-        key: UniqueKey(),
-        onComplete: () {
-          setState(() {
-            _hearts.removeAt(0);
-          });
-        },
-      ));
+      _hearts.add(
+        _HeartIcon(
+          key: UniqueKey(),
+          onComplete: () {
+            setState(() {
+              _hearts.removeAt(0);
+            });
+          },
+        ),
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -92,20 +93,27 @@ class _LikeBtnState extends State<LikeBtn> with SingleTickerProviderStateMixin {
             ),
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           ),
-          icon: widget.isAnimated
-              ? ScaleTransition(
-                  scale: _scaleAnimation,
-                  child: Icon(
+          icon:
+              widget.isAnimated
+                  ? ScaleTransition(
+                    scale: _scaleAnimation,
+                    child: Icon(
+                      widget.isLiked ? Icons.favorite : Icons.favorite_border,
+                      size: 18,
+                      color:
+                          widget.isLiked
+                              ? Colors.red.withAlpha(200)
+                              : colorScheme.onSurface,
+                    ),
+                  )
+                  : Icon(
                     widget.isLiked ? Icons.favorite : Icons.favorite_border,
                     size: 18,
-                    color: widget.isLiked ? Colors.red.withAlpha(200) : colorScheme.onSurface,
+                    color:
+                        widget.isLiked
+                            ? Colors.red.withAlpha(200)
+                            : colorScheme.onSurface,
                   ),
-                )
-              : Icon(
-                  widget.isLiked ? Icons.favorite : Icons.favorite_border,
-                  size: 18,
-                  color: widget.isLiked ? Colors.red.withAlpha(200) : colorScheme.onSurface,
-                ),
           label: Text('${widget.likeCount}'),
         ),
         if (widget.isAnimated) ..._hearts,
@@ -117,16 +125,15 @@ class _LikeBtnState extends State<LikeBtn> with SingleTickerProviderStateMixin {
 class _HeartIcon extends StatefulWidget {
   final VoidCallback onComplete;
 
-  const _HeartIcon({
-    required Key key,
-    required this.onComplete,
-  }) : super(key: key);
+  const _HeartIcon({required Key key, required this.onComplete})
+    : super(key: key);
 
   @override
   State<_HeartIcon> createState() => _HeartIconState();
 }
 
-class _HeartIconState extends State<_HeartIcon> with SingleTickerProviderStateMixin {
+class _HeartIconState extends State<_HeartIcon>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _scaleAnimation;
   late final Animation<Offset> _slideAnimation;
@@ -140,29 +147,29 @@ class _HeartIconState extends State<_HeartIcon> with SingleTickerProviderStateMi
       vsync: this,
     );
 
-    _scaleAnimation = Tween<double>(
-      begin: 0.8,
-      end: 1.5,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0, 0.5, curve: Curves.easeOut),
-    ));
+    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.5).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0, 0.5, curve: Curves.easeOut),
+      ),
+    );
 
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0, 0),
       end: const Offset(0, -2),
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0, 1, curve: Curves.easeOut),
-    ));
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0, 1, curve: Curves.easeOut),
+      ),
+    );
 
-    _fadeAnimation = Tween<double>(
-      begin: 1,
-      end: 0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.5, 1, curve: Curves.easeOut),
-    ));
+    _fadeAnimation = Tween<double>(begin: 1, end: 0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.5, 1, curve: Curves.easeOut),
+      ),
+    );
 
     _controller.forward().then((_) => widget.onComplete());
   }
@@ -183,14 +190,10 @@ class _HeartIconState extends State<_HeartIcon> with SingleTickerProviderStateMi
           scale: _scaleAnimation,
           child: FadeTransition(
             opacity: _fadeAnimation,
-            child: const Icon(
-              Icons.favorite,
-              size: 18,
-              color: Colors.red,
-            ),
+            child: const Icon(Icons.favorite, size: 18, color: Colors.red),
           ),
         ),
       ),
     );
   }
-} 
+}

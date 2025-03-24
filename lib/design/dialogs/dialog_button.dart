@@ -16,10 +16,7 @@ class DialogButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: FilledBtn(
-        text: title,
-        onPressed: onPressed,
-      ),
+      child: FilledBtn(text: title, onPressed: onPressed),
     );
   }
 }

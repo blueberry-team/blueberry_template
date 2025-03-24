@@ -9,22 +9,16 @@ class FilledBtn extends StatelessWidget {
   final VoidCallback? onPressed;
 
   /// FilledBtn 생성자
-  const FilledBtn({
-    super.key,
-    required this.text,
-    this.onPressed,
-  });
+  const FilledBtn({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return FilledButton(
       onPressed: onPressed,
       style: FilledButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       child: Text(text),
     );
   }
-} 
+}

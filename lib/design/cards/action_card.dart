@@ -48,19 +48,9 @@ class ActionCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Expanded(
-                  child: TextBtn(
-                    text: '취소',
-                    onPressed: onCancel,
-                  ),
-                ),
+                Expanded(child: TextBtn(text: '취소', onPressed: onCancel)),
                 const SizedBox(width: 8),
-                Expanded(
-                  child: FilledBtn(
-                    text: '확인',
-                    onPressed: onConfirm,
-                  ),
-                ),
+                Expanded(child: FilledBtn(text: '확인', onPressed: onConfirm)),
               ],
             ),
           ),
