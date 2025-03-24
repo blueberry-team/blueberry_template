@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../buttons/filled_btn.dart';
 
 /// 알림 메시지를 표시하는 다이얼로그 컴포넌트
 class CustomAlertDialog extends StatelessWidget {
@@ -30,6 +31,9 @@ class CustomAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
       title: Row(
         children: [
           Icon(icon, color: iconColor ?? Theme.of(context).colorScheme.primary),
@@ -39,9 +43,9 @@ class CustomAlertDialog extends StatelessWidget {
       ),
       content: Text(content),
       actions: [
-        FilledButton(
+        FilledBtn(
+          text: '확인',
           onPressed: onConfirm ?? () => Navigator.pop(context),
-          child: const Text('확인'),
         ),
       ],
     );

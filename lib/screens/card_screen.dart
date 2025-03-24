@@ -38,22 +38,22 @@ class CardScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 24),
-                const CardSection(
+                CardSection(
                   title: '액션 카드',
                   cards: [
                     ActionCard(
                       title: '액션 카드',
                       description: '버튼이 포함된 카드입니다.',
-                      onCancel: null,
-                      onConfirm: null,
+                      onCancel: () {},
+                      onConfirm: () {},
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     ActionCardWithImage(
                       title: '이미지와 액션이 있는 카드',
                       description: '이미지와 버튼이 함께 있는 카드입니다.',
                       imageUrl: 'https://picsum.photos/400/200',
-                      onCancel: null,
-                      onConfirm: null,
+                      onCancel: () {},
+                      onConfirm: () {},
                     ),
                   ],
                 ),

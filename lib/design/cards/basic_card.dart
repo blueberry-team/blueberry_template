@@ -20,7 +20,7 @@ class BasicCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: AppTypography.titleLarge),
+            Text(title, style: AppTypography.titleMedium),
             const SizedBox(height: 8),
             Text(description, style: AppTypography.bodyMedium),
           ],

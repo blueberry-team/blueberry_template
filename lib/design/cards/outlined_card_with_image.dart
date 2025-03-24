@@ -25,14 +25,14 @@ class OutlinedCardWithImage extends StatelessWidget {
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8),
         side: BorderSide(color: Theme.of(context).colorScheme.outline),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
             child: Image.network(
               imageUrl,
               height: 200,
@@ -45,7 +45,7 @@ class OutlinedCardWithImage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: AppTypography.titleLarge),
+                Text(title, style: AppTypography.titleMedium),
                 const SizedBox(height: 8),
                 Text(description, style: AppTypography.bodyMedium),
               ],

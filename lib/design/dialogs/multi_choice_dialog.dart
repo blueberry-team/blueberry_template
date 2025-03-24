@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../buttons/text_btn.dart';
+import '../buttons/filled_btn.dart';
 
 /// 다중 항목 선택 다이얼로그 컴포넌트
 class MultiChoiceDialog extends StatefulWidget {
@@ -33,6 +35,9 @@ class _MultiChoiceDialogState extends State<MultiChoiceDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
       title: Text(widget.title),
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -54,11 +59,12 @@ class _MultiChoiceDialogState extends State<MultiChoiceDialog> {
             }).toList(),
       ),
       actions: [
-        TextButton(
+        TextBtn(
+          text: '취소',
           onPressed: widget.onCancel ?? () => Navigator.pop(context),
-          child: const Text('취소'),
         ),
-        FilledButton(
+        FilledBtn(
+          text: '확인',
           onPressed:
               selectedValues.isEmpty
                   ? null
@@ -66,7 +72,6 @@ class _MultiChoiceDialogState extends State<MultiChoiceDialog> {
                     widget.onConfirm?.call(selectedValues.toList());
                     Navigator.pop(context);
                   },
-          child: const Text('확인'),
         ),
       ],
     );

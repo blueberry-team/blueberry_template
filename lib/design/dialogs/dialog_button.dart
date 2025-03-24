@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../buttons/filled_btn.dart';
 
 /// 다이얼로그 버튼을 표시하는 위젯
 class DialogButton extends StatelessWidget {
@@ -15,12 +16,9 @@ class DialogButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: FilledButton(
+      child: FilledBtn(
+        text: title,
         onPressed: onPressed,
-        style: FilledButton.styleFrom(
-          minimumSize: const Size(double.infinity, 48),
-        ),
-        child: Text(title),
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../theme/app_typography.dart';
+import '../buttons/text_btn.dart';
+import '../buttons/filled_btn.dart';
 
 /// 액션 버튼이 포함된 카드 컴포넌트
 class ActionCard extends StatelessWidget {
@@ -35,20 +37,30 @@ class ActionCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: AppTypography.titleLarge),
+                Text(title, style: AppTypography.titleMedium),
                 const SizedBox(height: 8),
                 Text(description, style: AppTypography.bodyMedium),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 8, bottom: 8),
-            child: OverflowBar(
-              alignment: MainAxisAlignment.end,
-              spacing: 8,
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton(onPressed: onCancel, child: const Text('취소')),
-                FilledButton(onPressed: onConfirm, child: const Text('확인')),
+                Expanded(
+                  child: TextBtn(
+                    text: '취소',
+                    onPressed: onCancel,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: FilledBtn(
+                    text: '확인',
+                    onPressed: onConfirm,
+                  ),
+                ),
               ],
             ),
           ),
