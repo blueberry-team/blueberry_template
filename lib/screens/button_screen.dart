@@ -7,6 +7,8 @@ import '../design/buttons/outlined_btn.dart';
 import '../design/buttons/outlined_icon_btn.dart';
 import '../design/buttons/text_btn.dart';
 import '../design/buttons/text_icon_btn.dart';
+import '../design/buttons/like_btn.dart';
+import '../design/buttons/comment_btn.dart';
 
 /// 다양한 버튼 컴포넌트를 표시하는 화면
 class ButtonScreen extends StatelessWidget {
@@ -68,6 +70,33 @@ class ButtonScreen extends StatelessWidget {
                       buttons: [
                         FilledBtn(text: 'Enabled', onPressed: () {}),
                         const FilledBtn(text: 'Disabled', onPressed: null),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                ButtonSection(
+                  title: '소셜 버튼',
+                  buttons: [
+                    ButtonRow(
+                      buttons: [
+                        LikeBtn(
+                          likeCount: 42,
+                          isLiked: false,
+                          onPressed: () {},
+                        ),
+                        LikeBtn(
+                          likeCount: 128,
+                          isLiked: true,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    ButtonRow(
+                      buttons: [
+                        CommentBtn(commentCount: 12, onPressed: () {}),
+                        CommentBtn(commentCount: 32, onPressed: () {}),
                       ],
                     ),
                   ],
