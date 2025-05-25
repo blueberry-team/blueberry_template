@@ -17,19 +17,15 @@ class AppTheme {
       // 버튼 테마 정의
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.resolveWith<Color>(
-            (states) {
-              if (states.contains(WidgetState.disabled)) {
-                return AppColor.primary.withAlpha(128); // 0.5 * 255 = 128
-              }
-              return AppColor.primary;
-            },
-          ),
+          backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return AppColor.primary.withAlpha(128); // 0.5 * 255 = 128
+            }
+            return AppColor.primary;
+          }),
           foregroundColor: WidgetStateProperty.all(Colors.white),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),
           padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -39,26 +35,22 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(Colors.transparent),
-          foregroundColor: WidgetStateProperty.resolveWith<Color>(
-            (states) {
-              if (states.contains(WidgetState.disabled)) {
-                return AppColor.secondary.withAlpha(128); // 0.5 * 255 = 128
-              }
-              return AppColor.secondary;
-            },
-          ),
-          side: WidgetStateProperty.resolveWith<BorderSide>(
-            (states) {
-              if (states.contains(WidgetState.disabled)) {
-                return BorderSide(color: AppColor.secondary.withAlpha(128)); // 0.5 * 255 = 128
-              }
-              return const BorderSide(color: AppColor.secondary);
-            },
-          ),
+          foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return AppColor.secondary.withAlpha(128); // 0.5 * 255 = 128
+            }
+            return AppColor.secondary;
+          }),
+          side: WidgetStateProperty.resolveWith<BorderSide>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return BorderSide(
+                color: AppColor.secondary.withAlpha(128),
+              ); // 0.5 * 255 = 128
+            }
+            return const BorderSide(color: AppColor.secondary);
+          }),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),
           padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -67,21 +59,17 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-          foregroundColor: WidgetStateProperty.resolveWith<Color>(
-            (states) {
-              if (states.contains(WidgetState.disabled)) {
-                return AppColor.textBtn.withAlpha(128); // 0.5 * 255 = 128
-              }
-              return AppColor.textBtn;
-            },
-          ),
+          foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return AppColor.textBtn.withAlpha(128); // 0.5 * 255 = 128
+            }
+            return AppColor.textBtn;
+          }),
           padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           ),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),
         ),
       ),
@@ -111,19 +99,15 @@ class AppTheme {
       // 버튼 테마 정의
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.resolveWith<Color>(
-            (states) {
-              if (states.contains(WidgetState.disabled)) {
-                return AppColor.primary.withAlpha(128); // 0.5 * 255 = 128
-              }
-              return AppColor.primary;
-            },
-          ),
+          backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return AppColor.primary.withAlpha(128); // 0.5 * 255 = 128
+            }
+            return AppColor.primary;
+          }),
           foregroundColor: WidgetStateProperty.all(Colors.white),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),
           padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -134,18 +118,16 @@ class AppTheme {
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(Colors.transparent),
           foregroundColor: WidgetStateProperty.all(Colors.white),
-          side: WidgetStateProperty.resolveWith<BorderSide>(
-            (states) {
-              if (states.contains(WidgetState.disabled)) {
-                return BorderSide(color: Colors.white.withAlpha(128)); // 0.5 * 255 = 128
-              }
-              return const BorderSide(color: Colors.white);
-            },
-          ),
+          side: WidgetStateProperty.resolveWith<BorderSide>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return BorderSide(
+                color: Colors.white.withAlpha(128),
+              ); // 0.5 * 255 = 128
+            }
+            return const BorderSide(color: Colors.white);
+          }),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),
           padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -154,21 +136,17 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-          foregroundColor: WidgetStateProperty.resolveWith<Color>(
-            (states) {
-              if (states.contains(WidgetState.disabled)) {
-                return AppColor.textBtn.withAlpha(128); // 0.5 * 255 = 128
-              }
-              return AppColor.textBtn;
-            },
-          ),
+          foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return AppColor.textBtn.withAlpha(128); // 0.5 * 255 = 128
+            }
+            return AppColor.textBtn;
+          }),
           padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           ),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),
         ),
       ),
@@ -176,7 +154,10 @@ class AppTheme {
       cardTheme: CardThemeData(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: Colors.white.withAlpha(51), width: 0.8), // 0.2 * 255 = 51
+          side: BorderSide(
+            color: Colors.white.withAlpha(51),
+            width: 0.8,
+          ), // 0.2 * 255 = 51
         ),
         elevation: 2,
         color: AppColor.darkSurface,

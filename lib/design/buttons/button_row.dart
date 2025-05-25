@@ -10,10 +10,6 @@ class ButtonRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 8, 
-      runSpacing: 8, 
-      children: buttons,
-    );
+    return Wrap(spacing: 8, runSpacing: 8, children: buttons);
   }
-} 
+}

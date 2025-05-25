@@ -9,22 +9,16 @@ class TextBtn extends StatelessWidget {
   final VoidCallback? onPressed;
 
   /// TextBtn 생성자
-  const TextBtn({
-    super.key,
-    required this.text,
-    this.onPressed,
-  });
+  const TextBtn({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       child: Text(text),
     );
   }
-} 
+}

@@ -9,22 +9,16 @@ class OutlinedBtn extends StatelessWidget {
   final VoidCallback? onPressed;
 
   /// OutlinedBtn 생성자
-  const OutlinedBtn({
-    super.key,
-    required this.text,
-    this.onPressed,
-  });
+  const OutlinedBtn({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       child: Text(text),
     );
   }
-} 
+}

@@ -10,26 +10,26 @@ class SocialCard extends StatelessWidget {
 
   /// 카드 설명
   final String description;
-  
+
   /// 좋아요 개수
   final int likeCount;
-  
+
   /// 좋아요 상태 (활성화 여부)
   final bool isLiked;
-  
+
   /// 코멘트 개수
   final int commentCount;
-  
+
   /// 좋아요 버튼 클릭 시 실행할 콜백 함수
   final VoidCallback? onLikePressed;
-  
+
   /// 코멘트 버튼 클릭 시 실행할 콜백 함수
   final VoidCallback? onCommentPressed;
 
   /// SocialCard 생성자
   const SocialCard({
-    super.key, 
-    required this.title, 
+    super.key,
+    required this.title,
     required this.description,
     required this.likeCount,
     required this.commentCount,
@@ -78,29 +78,29 @@ class SocialCardWithImage extends StatelessWidget {
 
   /// 카드 설명
   final String description;
-  
+
   /// 이미지 URL
   final String imageUrl;
-  
+
   /// 좋아요 개수
   final int likeCount;
-  
+
   /// 좋아요 상태 (활성화 여부)
   final bool isLiked;
-  
+
   /// 코멘트 개수
   final int commentCount;
-  
+
   /// 좋아요 버튼 클릭 시 실행할 콜백 함수
   final VoidCallback? onLikePressed;
-  
+
   /// 코멘트 버튼 클릭 시 실행할 콜백 함수
   final VoidCallback? onCommentPressed;
 
   /// SocialCardWithImage 생성자
   const SocialCardWithImage({
-    super.key, 
-    required this.title, 
+    super.key,
+    required this.title,
     required this.description,
     required this.imageUrl,
     required this.likeCount,
@@ -165,4 +165,4 @@ class SocialCardWithImage extends StatelessWidget {
       ),
     );
   }
-} 
+}
