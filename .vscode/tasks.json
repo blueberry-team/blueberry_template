@@ -1,0 +1,50 @@
+{
+    // 태스크 구성 버전
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // 패키지 의존성 설치
+            "label": "Flutter: flutter pub get",
+            "type": "shell",
+            "command": "flutter pub get",
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            // 캐시 및 빌드 파일 삭제
+            "label": "Flutter: flutter clean",
+            "type": "shell",
+            "command": "flutter clean",
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            // 코드 생성기 한번 실행 (freezed, json_serializable 등)
+            "label": "Flutter: build runner build",
+            "type": "shell",
+            "command": "flutter pub run build_runner build --delete-conflicting-outputs",
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            // 코드 생성기 자동 감시 모드 (파일 변경 시 자동 생성)
+            "label": "Flutter: build runner watch",
+            "type": "shell",
+            "command": "flutter pub run build_runner watch --delete-conflicting-outputs",
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

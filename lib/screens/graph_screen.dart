@@ -47,7 +47,7 @@ class GraphScreen extends StatelessWidget {
     return LineChartCard(
       title: '주간 활동',
       dataPoints: dataPoints,
-      lineColor: AppColor.neonPurple,
+      lineColor: AppColor.primary,
     );
   }
 
@@ -56,23 +56,23 @@ class GraphScreen extends StatelessWidget {
     final barGroups = [
       BarChartGroupData(
         x: 0,
-        barRods: [BarChartRodData(toY: 10, color: AppColor.neonPurple)],
+        barRods: [BarChartRodData(toY: 10, color: AppColor.primary)],
       ),
       BarChartGroupData(
         x: 1,
-        barRods: [BarChartRodData(toY: 7, color: AppColor.neonPurple)],
+        barRods: [BarChartRodData(toY: 7, color: AppColor.primary)],
       ),
       BarChartGroupData(
         x: 2,
-        barRods: [BarChartRodData(toY: 12, color: AppColor.neonPurple)],
+        barRods: [BarChartRodData(toY: 12, color: AppColor.primary)],
       ),
       BarChartGroupData(
         x: 3,
-        barRods: [BarChartRodData(toY: 5, color: AppColor.neonPurple)],
+        barRods: [BarChartRodData(toY: 5, color: AppColor.primary)],
       ),
       BarChartGroupData(
         x: 4,
-        barRods: [BarChartRodData(toY: 8, color: AppColor.neonPurple)],
+        barRods: [BarChartRodData(toY: 8, color: AppColor.primary)],
       ),
     ];
 
@@ -85,21 +85,21 @@ class GraphScreen extends StatelessWidget {
 
     final sections = [
       PieChartSectionData(
-        color: AppColor.neonPurple,
+        color: AppColor.primary,
         value: 30,
         title: '30%',
         radius: 50,
         titleStyle: textStyle,
       ),
       PieChartSectionData(
-        color: Colors.amber,
+        color: AppColor.secondary,
         value: 40,
         title: '40%',
         radius: 50,
         titleStyle: textStyle,
       ),
       PieChartSectionData(
-        color: Colors.blue,
+        color: AppColor.success,
         value: 30,
         title: '30%',
         radius: 50,

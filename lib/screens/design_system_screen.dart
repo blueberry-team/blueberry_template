@@ -87,7 +87,7 @@ class DesignSystemScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           _buildNavigationCard(
             context,
-            '캘린더',
+            '캘린더(임시)',
             '앱에서 사용하는 모든 캘린더 컴포넌트를 확인합니다.',
             () => Navigator.push(
               context,
@@ -97,7 +97,7 @@ class DesignSystemScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           _buildNavigationCard(
             context,
-            '그래프',
+            '그래프(임시)',
             '앱에서 사용하는 모든 그래프 컴포넌트를 확인합니다.',
             () => Navigator.push(
               context,

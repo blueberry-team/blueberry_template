@@ -27,7 +27,7 @@ class BasicCardWithImage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
             child: Image.network(
               imageUrl,
               height: 200,
@@ -40,7 +40,7 @@ class BasicCardWithImage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: AppTypography.titleLarge),
+                Text(title, style: AppTypography.titleMedium),
                 const SizedBox(height: 8),
                 Text(description, style: AppTypography.bodyMedium),
               ],

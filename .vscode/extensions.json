@@ -1,0 +1,32 @@
+{
+    "recommendations": [
+        // Dart 언어 지원을 위한 필수 확장 프로그램
+        "dart-code.dart-code",
+        // Flutter 프레임워크 지원, 위젯 미리보기, 디버깅 등을 제공
+        "dart-code.flutter",
+        // Flutter 국제화 및 지역화(i18n) 관리 도구
+        "localizely.flutter-intl",
+        // Flutter 개발을 위한 유용한 코드 스니펫 모음
+        "nash.awesome-flutter-snippets",
+        // Riverpod 상태 관리 라이브러리 스니펫 제공
+        "robert-brunhage.flutter-riverpod-snippets",
+        // 파일 및 폴더 아이콘 테마로 프로젝트 탐색이 직관적으로 개선
+        "pkief.material-icon-theme",
+        // 코드의 에러와 경고를 인라인으로 표시하여 가독성 향상
+        "usernamehw.errorlens",
+        // TODO, FIXME 등의 주석을 강조하고 목록화하여 확인 가능
+        "gruntfuggly.todo-tree",
+        // 후행 공백을 시각적으로 표시하여 코드를 깔끔하게 유지
+        "shardulm94.trailing-spaces",
+        // 코드 내 영어 철자 오류를 감지하고 수정 제안
+        "streetsidesoftware.code-spell-checker",
+        // Postman API 테스트 확장 프로그램
+        "postman.postman-for-vscode",
+        // 코드 캡처 도구
+        "adpyke.codesnap",
+        // 깃 렌즈
+        "eamodio.gitlens",
+        // 들여쓰기 색상 표시
+        "oderwat.indent-rainbow",
+    ]
+}

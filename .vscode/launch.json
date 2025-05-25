@@ -1,0 +1,27 @@
+{
+    // 디버그 구성 버전
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // 기본 디버그 모드 (개발용)
+            "name": "Flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug"
+        },
+        {
+            // 프로파일 모드 (성능 측정용)
+            "name": "Flutter (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            // 릴리즈 모드 (배포용)
+            "name": "Flutter (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

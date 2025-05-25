@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:template/theme/app_color.dart';
 
 /// 선 그래프를 표시하는 카드 컴포넌트
 class LineChartCard extends StatelessWidget {
@@ -63,7 +62,7 @@ class LineChartCard extends StatelessWidget {
                       dotData: const FlDotData(show: true),
                       belowBarData: BarAreaData(
                         show: true,
-                        color: AppColor.primary,
+                        color: color.withAlpha(30),
                       ),
                     ),
                   ],
