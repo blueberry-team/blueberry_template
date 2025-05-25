@@ -86,13 +86,13 @@ class AppTheme {
         ),
       ),
       // 카드 테마 정의
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: const BorderSide(color: AppColor.border, width: 1),
         ),
         elevation: 1,
-        color: AppColor.surface,
+        surfaceTintColor: AppColor.surface,
       ),
     );
   }
@@ -173,7 +173,7 @@ class AppTheme {
         ),
       ),
       // 카드 테마 정의
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(color: Colors.white.withAlpha(51), width: 0.8), // 0.2 * 255 = 51
