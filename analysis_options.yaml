@@ -8,6 +8,7 @@ analyzer:
     inference_failure_on_instance_creation: ignore
     inference_failure_on_function_return_type: ignore
     duplicate_definition: ignore
+    lines_longer_than_80_chars: ignore
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
@@ -42,3 +43,6 @@ linter:
     # 현대적 Dart 문법 권장
     unnecessary_null_checks: true # 불필요한 null 체크 감지
     prefer_null_aware_operators: true # null-aware 연산자 사용 권장 (object?.method())
+
+    # Cascade 연산자 강제 안함
+    cascade_invocations: false # cascade (..) 사용 강제 안함

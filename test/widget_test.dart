@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:flutter_test/flutter_test.dart';
+import 'package:template/features/todo/screens/sample_screen.dart';
 import 'package:template/main.dart';
-import 'package:template/screens/sample_screen.dart';
 
 void main() {
   /// Blueberry Template 앱 기본 렌더링 테스트

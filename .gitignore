@@ -75,3 +75,6 @@ GoogleService-Info.plist
 
 # fvm
 .fvm/
+
+# Others
+.claude/

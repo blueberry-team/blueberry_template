@@ -14,6 +14,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   google_fonts: ^6.2.1
   intl: ^0.20.2
+  easy_localization: ^3.0.8
 
   pedantic_mono: ^1.33.0
 
@@ -26,3 +27,4 @@ flutter:
 
   assets:
     - assets/
+    - assets/translations/

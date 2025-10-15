@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(fvm install:*)"
-    ],
-    "deny": [],
-    "ask": []
-  }
-}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:template/themes/app_colors.dart';
+import 'package:template/core/themes/app_colors.dart';
 
 /// 앱 전체에서 사용되는 테마 설정을 정의하는 클래스
 class AppTheme {
