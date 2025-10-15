@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/design_system_screen.dart';
-import 'theme/app_theme.dart';
-import 'providers/theme_provider.dart';
+import 'package:template/controllers/theme_provider.dart';
+import 'package:template/screens/sample_screen.dart';
+import 'package:template/themes/app_theme.dart';
 
 /// 앱 시작점
 void main() async {
@@ -23,11 +23,11 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeModeNotifierProvider);
 
     return MaterialApp(
-      title: '디자인 시스템',
+      title: 'Blueberry Template',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeMode,
-      home: const DesignSystemScreen(),
+      home: const SampleScreen(),
     );
   }
 }

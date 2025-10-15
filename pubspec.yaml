@@ -5,24 +5,21 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.8.1
 
 dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8
-  fl_chart: ^0.70.2
   flutter_riverpod: ^2.6.1
   google_fonts: ^6.2.1
   intl: ^0.20.2
-  table_calendar: ^3.2.0
+
+  pedantic_mono: ^1.33.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
