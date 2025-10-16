@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:template/core/themes/app_theme.dart';
 import 'package:template/core/controllers/theme_controller.dart';
+import 'package:template/core/themes/app_theme.dart';
 import 'package:template/features/todo/screens/sample_screen.dart';
 
 /// 앱 시작점

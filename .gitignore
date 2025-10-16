@@ -76,5 +76,5 @@ GoogleService-Info.plist
 # fvm
 .fvm/
 
-# Others
-.claude/
+# Claude Code
+.claude/settings.local.json
