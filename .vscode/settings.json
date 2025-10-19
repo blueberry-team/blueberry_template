@@ -4,6 +4,9 @@
     // Spell Checker
     "cSpell.words": [
         "buildscript",
+        "choco",
+        "cmdline",
+        "cocoapods",
         "figd",
         "flutterfire",
         "Framelink",
@@ -14,7 +17,8 @@
         "pubspec",
         "riverpod",
         "subosito",
-        "Supabase"
+        "Supabase",
+        "USERPROFILE"
     ],
     // Dart & Flutter
     "dart.flutterSdkPath": ".fvm/flutter_sdk",
