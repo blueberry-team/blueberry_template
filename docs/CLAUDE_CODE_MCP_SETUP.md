@@ -21,7 +21,14 @@
   "mcpServers": {
     "Framelink Figma MCP": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "figma-developer-mcp", "--figma-api-key=figd_YOUR_ACTUAL_KEY", "--stdio"]
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=figd_YOUR_ACTUAL_KEY",
+        "--stdio"
+      ]
     }
   }
 }
@@ -33,6 +40,7 @@
 2. 다시 열기
 
 또는 빠른 재시작:
+
 - `Ctrl + Shift + P` (Mac: `Cmd + Shift + P`)
 - "Developer: Reload Window" 입력 후 Enter
 
@@ -41,6 +49,7 @@
 Claude Code에서 Figma URL을 공유하면 자동으로 디자인 정보를 조회할 수 있습니다.
 
 예시:
+
 ```
 https://www.figma.com/design/FILE_KEY/...?node-id=XXX-XXX
 ```
@@ -52,6 +61,7 @@ https://www.figma.com/design/FILE_KEY/...?node-id=XXX-XXX
 **MCP (Model Context Protocol)**는 Claude Code가 외부 도구 및 데이터와 연동할 수 있게 해주는 프로토콜입니다.
 
 **Framelink Figma MCP**를 사용하면:
+
 - Figma 디자인 정보 조회
 - 컴포넌트 구조 분석
 - 디자인 시스템 색상/폰트 확인
@@ -68,7 +78,12 @@ https://www.figma.com/design/FILE_KEY/...?node-id=XXX-XXX
   "mcpServers": {
     "Framelink Figma MCP": {
       "command": "npx",
-      "args": ["-y", "figma-developer-mcp", "--figma-api-key=YOUR_FIGMA_API_KEY", "--stdio"]
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=YOUR_FIGMA_API_KEY",
+        "--stdio"
+      ]
     }
   }
 }
@@ -92,15 +107,18 @@ https://www.figma.com/design/FILE_KEY/...?node-id=XXX-XXX
 ## 🆘 트러블슈팅
 
 ### MCP 서버가 연결되지 않음
+
 → VS Code를 완전히 재시작했는지 확인
 → `.claude/settings.json`에 서버 이름이 정확히 등록되었는지 확인
 
 ### Figma API 호출 실패
+
 → API 키가 올바른지 확인
 → Figma 파일에 접근 권한이 있는지 확인
 → API 키 형식: `figd_XXXXX...` 형태
 
 ### Windows에서 npx 명령어 오류
+
 → Node.js가 설치되어 있는지 확인
 → 명령 프롬프트에서 `npx --version` 실행하여 확인
 

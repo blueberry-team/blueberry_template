@@ -122,5 +122,5 @@ Future<T> retryOperation<T>(Future<T> Function() operation, {int maxRetries = 3}
 ```yaml
 analyzer:
   errors:
-    todo: warning  # TODO 주석을 경고로 표시
+    todo: warning # TODO 주석을 경고로 표시
 ```

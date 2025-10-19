@@ -1,0 +1,23 @@
+# Dart and Flutter files (use dart format instead)
+**/*.dart
+
+# Flutter-specific YAML files (keep original format)
+pubspec.yaml
+pubspec.lock
+analysis_options.yaml
+
+# Flutter generated files
+**/*.g.dart
+**/*.freezed.dart
+**/*.gr.dart
+**/generated_plugin_registrant.dart
+
+# Build outputs
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# OS
+.DS_Store
+Thumbs.db

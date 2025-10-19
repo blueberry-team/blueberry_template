@@ -141,5 +141,6 @@ class MyScreen extends ConsumerWidget {
 ## 주의사항
 
 ❌ **사용하지 말 것:**
+
 - `StateNotifierProvider` (Riverpod 2.0 구식 패턴)
 - 단순 비동기 데이터를 위한 `FutureProvider` (AsyncNotifierProvider 권장)

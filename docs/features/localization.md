@@ -10,6 +10,7 @@
 ### 번역 파일 예제
 
 `assets/translations/ko.json`:
+
 ```json
 {
   "app_title": "블루베리 TODO",
@@ -19,6 +20,7 @@
 ```
 
 `assets/translations/en.json`:
+
 ```json
 {
   "app_title": "Blueberry TODO",
@@ -132,6 +134,7 @@ flutter:
 ```
 
 사용:
+
 ```dart
 Text('common.cancel'.tr());
 Text('todo.add_button'.tr());
@@ -141,11 +144,13 @@ Text('profile.edit_button'.tr());
 ## 주의사항
 
 ❌ **하지 말 것:**
+
 ```dart
 Text('추가하기');  // 하드코딩된 문자열
 ```
 
 ✅ **이렇게 하세요:**
+
 ```dart
 Text('todo.add_button'.tr());
 ```

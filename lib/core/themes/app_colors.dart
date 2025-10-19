@@ -73,17 +73,16 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? error,
     Color? success,
     Color? warning,
-  }) =>
-      AppColors(
-        surface: surface ?? this.surface,
-        textPrimary: textPrimary ?? this.textPrimary,
-        textSecondary: textSecondary ?? this.textSecondary,
-        primary: primary ?? this.primary,
-        secondary: secondary ?? this.secondary,
-        error: error ?? this.error,
-        success: success ?? this.success,
-        warning: warning ?? this.warning,
-      );
+  }) => AppColors(
+    surface: surface ?? this.surface,
+    textPrimary: textPrimary ?? this.textPrimary,
+    textSecondary: textSecondary ?? this.textSecondary,
+    primary: primary ?? this.primary,
+    secondary: secondary ?? this.secondary,
+    error: error ?? this.error,
+    success: success ?? this.success,
+    warning: warning ?? this.warning,
+  );
 
   @override
   AppColors lerp(ThemeExtension<AppColors>? other, double t) {
@@ -107,7 +106,6 @@ class AppColors extends ThemeExtension<AppColors> {
 extension AppColorsExtension on BuildContext {
   /// AppColors에 쉽게 접근하기 위한 getter
   AppColors get colors {
-    return Theme.of(this).extension<AppColors>() ??
-        AppColors.light;
+    return Theme.of(this).extension<AppColors>() ?? AppColors.light;
   }
 }

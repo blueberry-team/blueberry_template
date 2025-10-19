@@ -66,7 +66,9 @@ class SampleScreen extends ConsumerWidget {
                 todo.title,
                 style: AppTypography.body.copyWith(
                   decoration: todo.isDone ? TextDecoration.lineThrough : null,
-                  color: todo.isDone ? colors.textSecondary : colors.textPrimary,
+                  color: todo.isDone
+                      ? colors.textSecondary
+                      : colors.textPrimary,
                 ),
               ),
             ),

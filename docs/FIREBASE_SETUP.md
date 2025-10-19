@@ -19,6 +19,7 @@ flutterfire configure
 ```
 
 이 명령어를 실행하면:
+
 1. Firebase 콘솔에 로그인
 2. 프로젝트 선택 (또는 새로 생성)
 3. 플랫폼 선택 (Android, iOS 등)
@@ -84,6 +85,7 @@ ElevatedButton(
 ```
 
 또는:
+
 ```dart
 FirebaseCrashlytics.instance.crash();
 ```
@@ -103,21 +105,26 @@ Firebase Console > Crashlytics에서 1-2분 후 크래시 로그를 확인할 �
 ## 🆘 트러블슈팅
 
 ### Firebase 관련 Warning/Error 로그가 계속 나옴
+
 ```
 W/FirebaseSessions: Please set your Application ID
 E/FirebaseCrashlytics: Settings request failed
 ```
+
 → `lib/firebase_options.dart`가 샘플 파일이거나 `YOUR_ANDROID_APP_ID` 같은 플레이스홀더가 남아있음
 → `flutterfire configure`를 실행하여 실제 Firebase 프로젝트 정보로 교체 필요
 → 앱은 정상 동작하지만 Crashlytics는 작동하지 않음
 
 ### "google-services.json not found" (Android)
+
 → 위의 "디버깅: 설정 파일 수동으로 다운로드" 섹션 참고
 
 ### "GoogleService-Info.plist not found" (iOS)
+
 → 위의 "디버깅: 설정 파일 수동으로 다운로드" 섹션 참고
 
 ### Crashlytics에 로그가 안 보임
+
 → 첫 실행 후 1-2분 대기 필요, 앱을 완전히 종료 후 재실행
 
 ---

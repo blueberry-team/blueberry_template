@@ -7,6 +7,7 @@
 프로젝트는 `AppColors` ThemeExtension을 사용합니다.
 
 **현재 정의된 색상:**
+
 - `surface` - 배경색
 - `textPrimary` - 주요 텍스트
 - `textSecondary` - 보조 텍스트
@@ -165,12 +166,14 @@ static ThemeData get darkTheme {
 ## 주의사항
 
 ❌ **하지 말 것:**
+
 ```dart
 Container(color: Color(0xFF2196F3));  // 하드코딩된 색상
 Text('제목', style: TextStyle(fontSize: 32));  // 직접 크기 지정
 ```
 
 ✅ **이렇게 하세요:**
+
 ```dart
 Container(color: context.colors.primary);
 Text('제목', style: AppTypography.heading);

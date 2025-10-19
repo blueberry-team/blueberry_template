@@ -3,8 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template/features/todo/models/todo.dart';
 
 /// 할일 리스트 상태 관리
-final todoControllerProvider =
-    NotifierProvider<TodoController, List<Todo>>(TodoController.new);
+final todoControllerProvider = NotifierProvider<TodoController, List<Todo>>(
+  TodoController.new,
+);
 
 /// 할일 리스트 컨트롤러
 class TodoController extends Notifier<List<Todo>> {

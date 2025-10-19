@@ -1,0 +1,61 @@
+{
+    // Editor
+    "editor.formatOnSave": true,
+    // Spell Checker
+    "cSpell.words": [
+        "buildscript",
+        "figd",
+        "flutterfire",
+        "Framelink",
+        "gradlew",
+        "nonobvious",
+        "Noto",
+        "Podfile",
+        "pubspec",
+        "riverpod",
+        "subosito",
+        "Supabase"
+    ],
+    // Dart & Flutter
+    "dart.flutterSdkPath": ".fvm/flutter_sdk",
+    "dart.lineLength": 80,
+    "editor.rulers": [
+        80
+    ],
+    "[dart]": {
+        "editor.defaultFormatter": "Dart-Code.dart-code",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": false
+    },
+    // Prettier
+    "prettier.enable": true,
+    // Markdown
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.wordWrap": "on"
+    },
+    // YAML
+    "[yaml]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    // JSON
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // File exclusions
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/pubspec.lock": true,
+        "**/.fvm": true
+    },
+    "search.exclude": {
+        "**/.fvm": true,
+        "**/build": true
+    }
+}

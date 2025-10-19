@@ -44,6 +44,7 @@ features/[feature_name]/
 ```
 
 **예시: 새로운 "프로필" 기능 추가**
+
 ```
 features/profile/
 ├── controllers/

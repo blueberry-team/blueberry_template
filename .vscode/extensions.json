@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    // Flutter & Dart
+    "dart-code.flutter",
+    "dart-code.dart-code",
+    // Formatting
+    "esbenp.prettier-vscode",
+    // Git
+    "eamodio.gitlens",
+    // Utilities
+    "usernamehw.errorlens",
+  ]
+}

@@ -14,40 +14,43 @@ import 'package:template/firebase_options.dart';
 
 /// 앱 시작점
 void main() {
-  runZonedGuarded<Future<void>>(() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded<Future<void>>(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-    // Firebase 초기화
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+      // Firebase 초기화
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
 
-    // Crashlytics 설정
-    FlutterError.onError = (errorDetails) {
-      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-    };
+      // Crashlytics 설정
+      FlutterError.onError = (errorDetails) {
+        FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+      };
 
-    // 비동기 에러 처리
-    PlatformDispatcher.instance.onError = (error, stack) {
+      // 비동기 에러 처리
+      PlatformDispatcher.instance.onError = (error, stack) {
+        FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+        return true;
+      };
+
+      await EasyLocalization.ensureInitialized();
+      await GoogleFonts.pendingFonts();
+
+      runApp(
+        EasyLocalization(
+          supportedLocales: const [Locale('ko'), Locale('en')],
+          path: 'assets/translations',
+          fallbackLocale: const Locale('ko'),
+          child: const ProviderScope(child: MyApp()),
+        ),
+      );
+    },
+    (error, stack) {
+      // Zone에서 캐치되지 않은 에러 처리
       FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-      return true;
-    };
-
-    await EasyLocalization.ensureInitialized();
-    await GoogleFonts.pendingFonts();
-
-    runApp(
-      EasyLocalization(
-        supportedLocales: const [Locale('ko'), Locale('en')],
-        path: 'assets/translations',
-        fallbackLocale: const Locale('ko'),
-        child: const ProviderScope(child: MyApp()),
-      ),
-    );
-  }, (error, stack) {
-    // Zone에서 캐치되지 않은 에러 처리
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-  });
+    },
+  );
 }
 
 /// 앱의 루트 위젯
