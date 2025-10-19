@@ -1,0 +1,49 @@
+# Flutter 빌드를 자동 실행하는 워크플로우
+name: 빌드 테스트
+
+on: [ push ]
+
+jobs:
+  build:
+    name: 안드로이드 빌드 테스트
+    runs-on: ubuntu-latest
+
+    steps:
+      # 소스 코드 체크아웃
+      - uses: actions/checkout@v4
+
+      # Flutter SDK 설정
+      - name: Flutter 설정
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.6'
+
+      # 프로젝트의 의존성 설치
+      - name: 의존성 설치
+        run: flutter pub get
+
+      # Flutter의 로컬라이제이션 파일 생성
+#      - name: 로컬라이제이션 파일 생성
+#        run: flutter gen-l10n
+
+      # .env 파일 생성
+#      - name: .env 파일 생성
+#        run: |
+#          touch .env
+#          echo "BASE_TEST_URL=yourBaseTestURL" >> .env
+#          echo "IMAGE_BASE_URL=yourImageBaseURL" >> .env
+
+      # 빌드 러너 실행
+#      - name: 빌드 러너 실행
+#        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      # Android 빌드를 위한 Gradle 설정
+      - name: Gradle 설정
+        run: |
+          flutter create --platforms=android .
+          cd android
+          ./gradlew wrapper
+
+      # Android APK 빌드
+      - name: Android 빌드
+        run: flutter build apk

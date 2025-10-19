@@ -1,0 +1,48 @@
+include: package:pedantic_mono/analysis_options.yaml
+
+analyzer:
+  errors:
+    todo: warning
+    inference_failure_on_function_invocation: ignore
+    inference_failure_on_collection_literal: ignore
+    inference_failure_on_instance_creation: ignore
+    inference_failure_on_function_return_type: ignore
+    duplicate_definition: ignore
+    lines_longer_than_80_chars: ignore
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "lib/shared/image_generated/**"
+  plugins:
+    - custom_lint
+  language:
+    strict-casts: false
+    strict-raw-types: false
+
+linter:
+  rules:
+    # 문서화 관련
+    public_member_api_docs: true # 퍼블릭 멤버에 문서 주석 필수
+
+    # import/dependency 관련
+    sort_pub_dependencies: false # pubspec.yaml 의존성 정렬 강제 안함
+    prefer_relative_imports: false # 상대 경로 import 강제 안함
+    always_use_package_imports: true # package: import 사용 강제
+    depend_on_referenced_packages: false # 참조된 패키지 의존성 체크 안함
+
+    # 코드 구조 관련
+    avoid_classes_with_only_static_members: false # static 멤버만 있는 클래스 허용
+    avoid_dynamic_calls: false # dynamic 호출 허용
+    one_member_abstracts: false # 단일 멤버 추상 클래스 허용
+
+    # 타입 관련 규칙들 (Flutter 팀 권장 조합)
+    type_annotate_public_apis: false # 퍼블릭 API 타입 강제 안함
+    omit_obvious_property_types: true # 명확한 타입은 생략 권장 (var name = 'John')
+    specify_nonobvious_property_types: true # 명확하지 않은 타입은 명시 (Object data = getData())
+
+    # 현대적 Dart 문법 권장
+    unnecessary_null_checks: true # 불필요한 null 체크 감지
+    prefer_null_aware_operators: true # null-aware 연산자 사용 권장 (object?.method())
+
+    # Cascade 연산자 강제 안함
+    cascade_invocations: false # cascade (..) 사용 강제 안함

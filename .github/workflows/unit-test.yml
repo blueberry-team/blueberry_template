@@ -1,0 +1,45 @@
+# Flutter 테스트를 자동 실행하는 워크플로우
+name: 유닛 테스트
+
+on: [ push ]
+
+jobs:
+  test:
+    name: 유닛 테스트 실행
+    runs-on: ubuntu-latest
+
+    steps:
+      # 리포지토리 체크아웃
+      - name: 리포지토리 체크아웃
+        uses: actions/checkout@v4
+
+      # Flutter 환경 설정
+      - name: Flutter 설정
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.6'
+
+      # 의존성 설치
+      - name: 의존성 설치
+        run: flutter pub get
+
+      # 빌드러너 실행
+#      - name: 빌드러너 실행
+#        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      # Flutter 로컬라이즈 파일 생성
+#      - name: 로컬라이즈 파일 생성
+#        run: flutter gen-l10n
+
+      # .env 파일 생성
+#      - name: .env 파일 생성
+#        run: |
+#          touch .env
+#          echo "BASE_TEST_URL=yourBaseTestURL" >> .env
+#          echo "IMAGE_BASE_URL=yourImageBaseURL" >> .env
+
+      # 테스트 실행 및 커버리지 수집
+      - name: 테스트 실행
+        run: flutter test --coverage
+        env:
+          CI: true
