@@ -15,8 +15,8 @@ void main() {
     () async {
       // Flutter 바인딩 초기화
       WidgetsFlutterBinding.ensureInitialized();
-      // Firebase 초기화 (setup.dart에서 관리)
-      await FirebaseSetup.initialize();
+      // 외부 서비스 초기화
+      await AppSetup.initialize();
       // 다국어 지원 초기화
       await EasyLocalization.ensureInitialized();
       // Google Fonts 초기화
@@ -32,7 +32,7 @@ void main() {
         ),
       );
     },
-    FirebaseSetup.handleZoneError,
+    AppSetup.handleZoneError,
   );
 }
 
