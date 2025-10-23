@@ -1,43 +1,29 @@
 import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:template/core/controllers/theme_controller.dart';
 import 'package:template/core/themes/app_theme.dart';
 import 'package:template/features/todo/screens/sample_screen.dart';
-import 'package:template/firebase_options.dart';
+import 'package:template/setup.dart';
 
 /// 앱 시작점
 void main() {
   runZonedGuarded<Future<void>>(
     () async {
+      // Flutter 바인딩 초기화
       WidgetsFlutterBinding.ensureInitialized();
-
-      // Firebase 초기화
-      await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-      );
-
-      // Crashlytics 설정
-      FlutterError.onError = (errorDetails) {
-        FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-      };
-
-      // 비동기 에러 처리
-      PlatformDispatcher.instance.onError = (error, stack) {
-        FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-        return true;
-      };
-
+      // Firebase 초기화 (setup.dart에서 관리)
+      await FirebaseSetup.initialize();
+      // 다국어 지원 초기화
       await EasyLocalization.ensureInitialized();
+      // Google Fonts 초기화
       await GoogleFonts.pendingFonts();
 
       runApp(
+        // Riverpod 및 EasyLocalization 설정
         EasyLocalization(
           supportedLocales: const [Locale('ko'), Locale('en')],
           path: 'assets/translations',
@@ -46,10 +32,7 @@ void main() {
         ),
       );
     },
-    (error, stack) {
-      // Zone에서 캐치되지 않은 에러 처리
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    },
+    FirebaseSetup.handleZoneError,
   );
 }
 
