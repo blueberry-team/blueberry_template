@@ -3,6 +3,7 @@
     "editor.formatOnSave": true,
     // Spell Checker
     "cSpell.words": [
+        "appbundle",
         "buildscript",
         "choco",
         "cmdline",

@@ -25,9 +25,23 @@ fvm flutter pub get
 
 # 앱 실행
 fvm flutter run
+```
+
+## Flutter 유용한 커맨드
+
+```bash
+# 패키지 추가
+fvm flutter pub add package_name
 
 # 코드 포맷팅
 fvm dart format .
+
+# 빌드 캐시 삭제
+fvm flutter clean
+
+# 빌드
+fvm flutter build apk                        # Android APK 빌드
+fvm flutter build appbundle                  # Android App Bundle 빌드
 ```
 
 ## Git 유용한 커맨드
@@ -38,6 +52,7 @@ git reset --soft HEAD~1
 
 # 강제 푸시 (주의: 협업 시 사용 금지)
 git push --force
+
 ```
 
 ## 폴더 구조

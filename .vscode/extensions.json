@@ -7,7 +7,19 @@
     "esbenp.prettier-vscode",
     // Git
     "eamodio.gitlens",
+    // GitHub Actions
+    "github.vscode-github-actions",
     // Utilities
     "usernamehw.errorlens",
+    // Indentation
+    "oderwat.indent-rainbow",
+    // Markdown
+    "yzhang.markdown-all-in-one",
+    // Themes & Icons
+    "pkief.material-icon-theme",
+    // AI & Productivity
+    "paulwalker.claude-code-poll-vscode",
+    // Code Capture
+    "adpyke.codesnap"
   ]
 }
