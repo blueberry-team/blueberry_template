@@ -26,8 +26,8 @@ lib/
         │   └── github_controller.dart
         ├── models/            # 데이터 모델
         │   └── github_repo_model.dart
-        └── services/          # REST API 호출
-            └── github_service.dart
+        └── repositories/      # REST API 호출
+            └── github_repository.dart
 ```
 
 ## 기능별 모듈 구조
@@ -40,7 +40,7 @@ features/[feature_name]/
 ├── models/         # 데이터 구조 정의
 ├── screens/        # 화면 UI
 ├── widgets/        # 재사용 가능한 위젯 (선택)
-└── services/       # REST API 호출 등 (선택)
+└── repositories/   # REST API 호출 등 (선택)
 ```
 
 **예시: 새로운 "프로필" 기능 추가**

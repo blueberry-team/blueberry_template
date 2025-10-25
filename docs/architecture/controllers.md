@@ -86,11 +86,11 @@ final githubProvider = AsyncNotifierProvider<GitHubNotifier, GithubRepoModel>(
 );
 
 class GitHubNotifier extends AsyncNotifier<GithubRepoModel> {
-  final _service = GitHubService();
+  final _repository = GitHubRepository();
 
   @override
   Future<GithubRepoModel> build() {
-    return _service.getRepo(
+    return _repository.getRepo(
       owner: 'blueberry-team',
       repo: 'blueberry_template',
     );
@@ -99,7 +99,7 @@ class GitHubNotifier extends AsyncNotifier<GithubRepoModel> {
   Future<void> refresh() async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(
-      () => _service.getRepo(
+      () => _repository.getRepo(
         owner: 'blueberry-team',
         repo: 'blueberry_template',
       ),

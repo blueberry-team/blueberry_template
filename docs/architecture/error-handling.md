@@ -79,10 +79,10 @@ class DataNotifier extends AsyncNotifier<Data> {
 
 ## 네트워크 에러 처리
 
-### Service 계층에서
+### Repository 계층에서
 
 ```dart
-class GitHubService {
+class GitHubRepository {
   Future<GithubRepoModel> getRepo({required String owner, required String repo}) async {
     final response = await http.get(url);
 

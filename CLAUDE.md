@@ -77,27 +77,27 @@ lib/
         ├── models/       # Data models
         ├── screens/      # UI screens
         ├── widgets/      # Feature-specific widgets (optional)
-        └── services/     # API/data layer (optional - see guidelines below)
+        └── repositories/ # API/data layer (optional - see guidelines below)
 ```
 
-### When to Create a Service Layer
+### When to Create a Repository Layer
 
-**Create `services/` when:**
-- Making REST API calls (see `features/github/services/github_service.dart` as example)
+**Create `repositories/` when:**
+- Making REST API calls (see `features/github/repositories/github_repository.dart` as example)
 - Implementing GraphQL queries
 - Working with local databases (SQLite, Hive)
 - Need to abstract complex data operations shared across multiple controllers
+- Using Firebase/Supabase SDKs but want to organize code better (코드 정리 목적으로 Repository 생성 가능)
 
-**Skip `services/` when:**
-- Using Firebase/Supabase SDKs (call directly from controllers)
-- Managing simple UI state
-- Working with well-designed SDKs that don't need wrapping
+**Skip `repositories/` when:**
+- Managing simple UI state only
+- The abstraction doesn't add value (YAGNI 원칙)
 
 **Example: REST API pattern (github feature)**
 
 ```dart
-// ✅ Service 계층 (features/github/services/github_service.dart)
-class GitHubService {
+// ✅ Repository 계층 (features/github/repositories/github_repository.dart)
+class GitHubRepository {
   static const _baseUrl = 'https://api.github.com';
 
   Future<GithubRepoModel> getRepo({
@@ -116,23 +116,23 @@ class GitHubService {
   }
 }
 
-// ✅ Controller에서 Service 사용 (features/github/controllers/github_controller.dart)
+// ✅ Controller에서 Repository 사용 (features/github/controllers/github_controller.dart)
 final githubProvider = AsyncNotifierProvider<GitHubNotifier, GithubRepoModel>(
   GitHubNotifier.new,
 );
 
 class GitHubNotifier extends AsyncNotifier<GithubRepoModel> {
-  final _service = GitHubService();
+  final _repository = GitHubRepository();
 
   @override
   Future<GithubRepoModel> build() {
-    return _service.getRepo(owner: 'blueberry-team', repo: 'blueberry_template');
+    return _repository.getRepo(owner: 'blueberry-team', repo: 'blueberry_template');
   }
 
   Future<void> refresh() async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(
-      () => _service.getRepo(owner: 'blueberry-team', repo: 'blueberry_template'),
+      () => _repository.getRepo(owner: 'blueberry-team', repo: 'blueberry_template'),
     );
   }
 }
@@ -167,22 +167,25 @@ final userProvider = AsyncNotifierProvider<UserController, User?>(
 );
 
 class UserController extends AsyncNotifier<User?> {
+  final _userRepository = UserRepository();
+  final _authRepository = AuthRepository();
+
   @override
   Future<User?> build() async {
     // 비동기 초기화 (API 호출, DB 읽기 등)
-    return await ref.read(userRepositoryProvider).getCurrentUser();
+    return await _userRepository.getCurrentUser();
   }
 
   Future<void> signIn(String email, String password) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      return await ref.read(authRepositoryProvider).signIn(email, password);
+      return await _authRepository.signIn(email, password);
     });
   }
 
   Future<void> signOut() async {
     state = const AsyncLoading();
-    await ref.read(authRepositoryProvider).signOut();
+    await _authRepository.signOut();
     state = const AsyncData(null);
   }
 }
@@ -230,7 +233,8 @@ final userProvider = FutureProvider<User?>(...);
 // 예: Mutation 사용
 final saveTodoMutation = Mutation<void, String>(
   (ref, title) async {
-    await ref.read(todoRepositoryProvider).save(title);
+    final todoRepository = TodoRepository();
+    await todoRepository.save(title);
   },
 );
 

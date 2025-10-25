@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:template/features/github/models/github_repo_model.dart';
 
-/// GitHub API 서비스
-class GitHubService {
+/// GitHub API 레포지토리
+class GitHubRepository {
   static const _baseUrl = 'https://api.github.com';
 
   /// 특정 레포지토리 정보 조회

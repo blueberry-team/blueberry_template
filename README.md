@@ -70,7 +70,7 @@ lib/
     └── github/         # API 연동 예제
         ├── controllers/
         ├── models/
-        └── services/
+        └── repositories/
 ```
 
 ## 주요 패키지
@@ -88,7 +88,7 @@ lib/
 - **[프로젝트 구조](docs/architecture/project-structure.md)** - 폴더 구조와 모듈화 전략
 - **[스크린 & 위젯](docs/architecture/screens.md)** - 화면과 위젯 작성 가이드
 - **[컨트롤러](docs/architecture/controllers.md)** - Riverpod 상태 관리 (Notifier, AsyncNotifier)
-- **[서비스](docs/architecture/services.md)** - Service 레이어 사용 가이드
+- **[레포지토리](docs/architecture/repositories.md)** - Repository 레이어 사용 가이드
 - **[다국어화](docs/features/localization.md)** - easy_localization 사용법
 - **[테마](docs/features/theming.md)** - 색상, 타이포그래피, 테마 전환
 - **[에러 핸들링](docs/architecture/error-handling.md)** - 에러 처리와 Crashlytics
