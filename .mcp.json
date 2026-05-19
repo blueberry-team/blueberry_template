@@ -3,6 +3,10 @@
     "Framelink Figma MCP": {
       "command": "cmd",
       "args": ["/c", "npx", "-y", "figma-developer-mcp", "--figma-api-key=YOUR_FIGMA_API_KEY", "--stdio"]
+    },
+    "marionette": {
+      "command": "cmd",
+      "args": ["/c", "dart run marionette_mcp"]
     }
   }
 }
